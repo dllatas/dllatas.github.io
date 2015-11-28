@@ -7,5 +7,4 @@ Uppsala, Sweden. Today.
 Machine Learning
 Javascript
 Music
-Football
 
