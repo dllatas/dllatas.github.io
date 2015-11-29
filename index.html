@@ -1,12 +1,16 @@
 <html>
 <head>
 	<title>Daniel Llatas Spiers</title>
+	<script src="bundle.js"></script>
 </head>
 <body>
-	<h1>welcome to dllatas.github.io!</h1>
-	<h3>the broad spectrum of life seduces me / el amplio espectro de la vida me seduce</h3>
-	<p>Lima, Peru. 1989 - 2014</p>
-	<p>Uppsala, Sweden. 2014 - today.</p>
+	<script id="title-template" type="text/x-handlebars-template">
+		<h1>{{title}}</h1>
+		<h3>{{subtitle}}</h3>
+		<p>{{address1}}</p>
+		<p>{{address2}}</p>
+	</script>
+	<div class="content-placeholder"></div>	
 	<p>Machine Learning</p>
 	<p>Javascript</p>
 	<p>Music</p>
