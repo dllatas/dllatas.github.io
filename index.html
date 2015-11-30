@@ -1,18 +1,19 @@
 <html>
-<head>
-	<title>Daniel Llatas Spiers</title>
-	<script src="bundle.js"></script>
-</head>
-<body>
-	<script id="title-template" type="text/x-handlebars-template">
-		<h1>{{title}}</h1>
-		<h3>{{subtitle}}</h3>
-		<p>{{address1}}</p>
-		<p>{{address2}}</p>
-	</script>
-	<div class="content-placeholder"></div>	
-	<p>Machine Learning</p>
-	<p>Javascript</p>
-	<p>Music</p>
-</body>
+	<head>
+		<title>Daniel Llatas Spiers</title>
+		<script src="bundle.js"></script>
+	</head>
+	<body>
+		<div class="content-placeholder"></div>	
+	</body>
 </html>
+
+<script id="title-template" type="text/x-handlebars-template">
+	<h1>{{title}}</h1>
+	<h3>{{subtitle}}</h3>
+	<p>{{address1}}</p>
+	<p>{{address2}}</p>
+	{{#each skills}}
+		<p>{{topic}}</p>
+	{{/each}}
+</script>

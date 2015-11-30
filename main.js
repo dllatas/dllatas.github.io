@@ -2,17 +2,22 @@ var Handlebars = require("handlebars");
 var $ = require("jquery");
 
 $(function () {
-	"use strict";
-	var source = $("#title-template").html();
-	var template = Handlebars.compile(source);
-	var context = {
-	    title: "welcome to dllatas.github.io!",
-	    subtitle: "the broad spectrum of life seduces me / el amplio espectro de la vida me seduce",
-	    address1: "Lima, Peru. 1989 - 2014",
-	    address2: "Uppsala, Sweden. 2014 - today",
-	};
-	var html = template(context);
-	$('.content-placeholder').html(html);
+    "use strict";
+    var source = $("#title-template").html();
+    var template = Handlebars.compile(source);
+    var context = {
+        title: "welcome to dllatas.github.io!",
+        subtitle: "the broad spectrum of life seduces me / el amplio espectro de la vida me seduce",
+        address1: "Lima, Peru. 1989 - 2014",
+        address2: "Uppsala, Sweden. 2014 - today",
+        skills: [
+            {topic: 'Machine Learning'},
+            {topic: 'Javascript'},
+            {topic: 'Music'}
+        ]
+    };
+    var html = template(context);
+    $('.content-placeholder').html(html);
 });
 
 /*
