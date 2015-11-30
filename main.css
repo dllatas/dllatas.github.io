@@ -1,9 +1,6 @@
-h3 {
-	font-family: "Shadows Into Light Two", cursive;
-}
-
 .jumbotron {
 	background-color: #BBDEFB;
+	margin-bottom: 15px;
 }
 
 .jumbotron > h1 {
@@ -14,4 +11,14 @@ h3 {
 	font-family: "Handlee", cursive;	
 }
 
+.css-skill-header {
+	font-family: "Shadows Into Light Two", cursive;
+	font-size: 28px;
+}
+
+.footer {
+	padding-top: 19px;
+	color: #777;
+	border-top: 1px solid #E5E5E5;
+}
 
