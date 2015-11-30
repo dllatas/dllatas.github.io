@@ -1,0 +1,38 @@
+{
+  "name": "dllatas.github.io",
+  "version": "1.0.0",
+  "description": "Personal webpage ",
+  "main": "main.js",
+  "scripts": {
+    "build-css": "parcelify main.js -c bundle.css",
+    "build-js": "browserify main.js > bundle.js",
+    "start": "npm run build-css && npm run build-js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dllatas/dllatas.github.io"
+  },
+  "keywords": [
+    "front-end"
+  ],
+  "author": "Daniel Llatas Spiers",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dllatas/dllatas.github.io/issues"
+  },
+  "homepage": "https://github.com/dllatas/dllatas.github.io",
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "jquery": "^2.1.4"
+  },
+  "devDependencies": {
+    "browserify": "^9.0.3",
+    "parcelify": "^0.12.5"
+  },
+  "browser": {
+    "bootstrap": "./node_modules/bootstrap/dist/js/bootstrap.js"
+  },
+  "style": [
+    "./node_modules/bootstrap/dist/css/bootstrap.css"
+  ]
+}
