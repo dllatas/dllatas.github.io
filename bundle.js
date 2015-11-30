@@ -7920,9 +7920,9 @@ $(function () {
     var templates = [["#content-placeholder",".hb-content-placeholder",{
         skills: [
             {topic: 'bio', detail: "Lima, Peru. 1989 - 2014. Uppsala, Sweden. 2014 - today."},
-            {topic: 'machine learning', detail: "ga, ann, deep learning"},
-            {topic: 'uix', detail: "js"},
-            {topic: 'music', detail: "guitar, blecket"}
+            {topic: 'machine learning', detail: "genetic algorithm, artificial neural networks, deep learning"},
+            {topic: 'uix', detail: "javascript"},
+            {topic: 'music', detail: "guitar, wijkmanska blecket"}
         ]
     }],["#jumbotron-placeholder",".hb-jumbotron-placeholder",{title: "welcome to dllatas.github.io!",
         subtitle: "the broad spectrum of life seduces me"}],["#footer-placeholder",".hb-footer-placeholder",{footer: "2015 metAleph Inc."}]];

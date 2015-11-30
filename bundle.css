@@ -13518,3 +13518,20 @@ button.close {
   }
 }
 /*# sourceMappingURL=bootstrap.css.map */
+h3 {
+	font-family: "Shadows Into Light Two", cursive;
+}
+
+.jumbotron {
+	background-color: #BBDEFB;
+}
+
+.jumbotron > h1 {
+	font-family: "Coming Soon", cursive;
+}
+
+.lead {
+	font-family: "Handlee", cursive;	
+}
+
+

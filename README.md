@@ -1,10 +1,14 @@
 # welcome to dllatas.github.io!
-### the broad spectrum of life seduces me / el amplio espectro de la vida me seduce
-Lima, Peru. 1989.
+### the broad spectrum of life seduces me
 
-Uppsala, Sweden. Today.
+### bio
+Lima, Peru. 1989 - 2014. Uppsala, Sweden. 2014 - today.
 
-Machine Learning
-Javascript
-Music
+### machine learning
+ga, ann, deep learning
 
+### uix
+js
+
+### music
+guitar, blecket
