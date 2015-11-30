@@ -7911,35 +7911,33 @@ module.exports = amdefine;
 }).call(this,require('_process'),"/../../node_modules/handlebars/node_modules/source-map/node_modules/amdefine/amdefine.js")
 },{"_process":47,"path":46}],43:[function(require,module,exports){
 (function (global){
-// Bootstrap wants jQuery global =(
-//$ = jQuery = require('jquery');
-// Bootstrap doesn't have a "main" field / export anything =(
-global.jQuery = require('jquery');
-$ = global.jQuery;
-bootstrap = require('bootstrap');
-console.log(bootstrap);
-// Get Bootstrap styles with cssify
-//var style = require('/usr/lib/node_modules/bootstrap/dist/css/bootstrap.css');
+$ = global.jQuery = require('jquery');
+require('bootstrap');
 var Handlebars = require("handlebars");
 
 $(function () {
     "use strict";
-    var source = $("#title-template").html();
-    var template = Handlebars.compile(source);
-    var context = {
-        title: "welcome to dllatas.github.io!",
-        subtitle: "the broad spectrum of life seduces me / el amplio espectro de la vida me seduce",
-        address1: "Lima, Peru. 1989 - 2014",
-        address2: "Uppsala, Sweden. 2014 - today",
+    var templates = [["#content-placeholder",".hb-content-placeholder",{
         skills: [
-            {topic: 'Machine Learning'},
-            {topic: 'Javascript'},
-            {topic: 'Music'}
+            {topic: 'bio', detail: "Lima, Peru. 1989 - 2014. Uppsala, Sweden. 2014 - today."},
+            {topic: 'machine learning', detail: "ga, ann, deep learning"},
+            {topic: 'uix', detail: "js"},
+            {topic: 'music', detail: "guitar, blecket"}
         ]
-    };
-    var html = template(context);
-    $('.content-placeholder').html(html);
-}); 
+    }],["#jumbotron-placeholder",".hb-jumbotron-placeholder",{title: "welcome to dllatas.github.io!",
+        subtitle: "the broad spectrum of life seduces me"}],["#footer-placeholder",".hb-footer-placeholder",{footer: "2015 metAleph Inc."}]];
+
+    function render(template) {
+    	for(var i=0;i<template.length;i++){
+    		var templateCompiled = Handlebars.compile($(template[i][0]).html());
+    		var html = templateCompiled(template[i][2]);
+    		$(template[i][1]).html(html);
+    	}
+    }
+
+    render(templates);
+
+});
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"bootstrap":44,"handlebars":30,"jquery":48}],44:[function(require,module,exports){
 /*!
