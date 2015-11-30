@@ -17,8 +17,7 @@ $(function () {
     function render(template) {
     	for(var i=0;i<template.length;i++){
     		var templateCompiled = Handlebars.compile($(template[i][0]).html());
-    		console.log(template[i][2]);
-    	    var html = templateCompiled(template[i][2]);
+    		var html = templateCompiled(template[i][2]);
     		$(template[i][1]).html(html);
     	}
     }
