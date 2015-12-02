@@ -1,14 +1,7 @@
-# welcome to dllatas.github.io!
-### the broad spectrum of life seduces me
+# dllatas.github.io
 
-### bio
-Lima, Peru. 1989 - 2014. Uppsala, Sweden. 2014 - today.
+### Why?
+The idea of this web page is to be a hub of all the projects I have collaborated with.
 
-### machine learning
-ga, ann, deep learning
-
-### uix
-js
-
-### music
-guitar, blecket
+### How?
+Using a clear way to access project's webpages or papers 
