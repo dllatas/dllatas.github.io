@@ -13518,6 +13518,15 @@ button.close {
   }
 }
 /*# sourceMappingURL=bootstrap.css.map */
+html {
+	position: relative;
+	min-height: 100%;
+}
+
+body {
+	margin-bottom: 60px;
+}
+
 .jumbotron {
 	background-color: #BBDEFB;
 	margin-bottom: 15px;
@@ -13535,10 +13544,3 @@ button.close {
 	font-family: "Shadows Into Light Two", cursive;
 	font-size: 28px;
 }
-
-.footer {
-	padding-top: 19px;
-	color: #777;
-	border-top: 1px solid #E5E5E5;
-}
-

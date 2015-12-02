@@ -13,9 +13,8 @@
 		<div class="container">
 			<div class="jumbotron text-center hb-jumbotron-placeholder"></div>
 			<div class="row hb-content-placeholder"></div>
-			<footer class="footer hb-footer-placeholder"></footer>
 		</div>
-		<script src="bundle.js"></script>
+		<script src="bundle.min.js"></script>
 	</body>
 </html>
 
@@ -28,11 +27,13 @@
 	<div class="col-lg-12 text-center">
 	{{#each skills}}
 		<h3 class="css-skill-header">{{topic}}</h3>
-        <p>{{detail}}</p>
+		{{#each detail}}
+			{{#if link}}
+				<p><a href={{link}} target="_blank">{{content}}</a></p>
+			{{else}}
+				<p>{{content}}</p>
+			{{/if}}
+		{{/each}}
 	{{/each}}
 	</div>
-</script>
-
-<script id="footer-placeholder" type="text/x-handlebars-template">
-	<p>&copy; {{footer}}</p>
 </script>
