@@ -1,0 +1,28 @@
+/*To delete*/
+
+html {
+	position: relative;
+	min-height: 100%;
+}
+
+body {
+	margin-bottom: 60px;
+}
+
+.jumbotron {
+	background-color: #BBDEFB;
+	margin-bottom: 15px;
+}
+
+.jumbotron > h1 {
+	font-family: "Coming Soon", cursive;
+}
+
+.lead {
+	font-family: "Handlee", cursive;
+}
+
+.css-skill-header {
+	font-family: "Shadows Into Light Two", cursive;
+	font-size: 28px;
+}
