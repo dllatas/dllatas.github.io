@@ -22,12 +22,23 @@
   },
   "homepage": "https://github.com/dllatas/dllatas.github.io",
   "dependencies": {
+    "babel": "^6.5.2",
     "bootstrap": "^3.3.6",
-    "jquery": "^2.1.4"
+    "jquery": "^2.1.4",
+    "react": "^15.3.0",
+    "react-dom": "^15.3.0"
   },
   "devDependencies": {
-    "browserify": "^9.0.3",
-    "parcelify": "^0.12.5"
+    "babel-preset-es2015": "^6.13.2",
+    "browserify": "^9.0.8",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-concat": "^2.6.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^2.0.0",
+    "parcelify": "^0.12.5",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
   },
   "browser": {
     "bootstrap": "./node_modules/bootstrap/dist/js/bootstrap.js"
