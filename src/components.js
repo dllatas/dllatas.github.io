@@ -1,4 +1,5 @@
 import React from 'react';
+import { Modal } from 'react-bootstrap';
 
 export const Bio = props => React.createElement(
     'p',
@@ -21,7 +22,7 @@ export const Jumbotron = props => React.createElement(
 
 export const Desc = props => React.createElement(
     'p',
-    null,
+    { className: 'text-justify' },
     props.desc
 );
 
@@ -31,17 +32,82 @@ export const Project = props => React.createElement(
     props.project
 );
 
+export class ProjectModal extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { showModal: false };
+        this.open = this.open.bind(this);
+        this.close = this.close.bind(this);
+    }
+    open() {
+        this.setState({ showModal: true });
+    }
+    close() {
+        this.setState({ showModal: false });
+    }
+    render() {
+        return React.createElement(
+            'div',
+            null,
+            React.createElement(
+                Modal,
+                { show: this.state.showModal, onHide: this.close },
+                React.createElement(
+                    Modal.Header,
+                    { closeButton: true },
+                    React.createElement(
+                        Modal.Title,
+                        null,
+                        'Modal heading'
+                    )
+                ),
+                React.createElement(
+                    Modal.Body,
+                    null,
+                    React.createElement(
+                        'h4',
+                        null,
+                        this.props.project
+                    ),
+                    React.createElement(
+                        'p',
+                        null,
+                        this.props.desc
+                    ),
+                    React.createElement('hr', null),
+                    React.createElement(
+                        'h4',
+                        null,
+                        'Tasks'
+                    ),
+                    React.createElement(
+                        'p',
+                        null,
+                        this.props.task
+                    )
+                )
+            )
+        );
+    }
+};
+
+export const Launch = props => React.createElement(
+    'button',
+    { onClick: ProjectModal.open },
+    'Launch demo modal'
+);
+
 export const Line12 = props => React.createElement(
-    'div',
+    'article',
     { className: 'col-lg-12' },
     React.createElement(Project, { project: props.project }),
     React.createElement(Desc, { desc: props.desc })
 );
 
 export const Line6 = props => React.createElement(
-    'div',
+    'article',
     { className: 'col-lg-6' },
-    React.createElement(Project, { project: props.project }),
+    React.createElement(Project, { project: props.project, desc: "asdf", task: "asdf" }),
     React.createElement(Desc, { desc: props.desc })
 );
 
@@ -53,28 +119,22 @@ export const Row12 = props => React.createElement(
 
 export const Row6 = props => React.createElement(
     'div',
-    { key: '0', className: 'row marketing' },
+    { className: 'row marketing' },
     props.data.map(function (data) {
         return React.createElement(Line6, { key: data.id, project: data.project, desc: data.desc });
     })
 );
 
 /*
-var ListItemWrapper = React.createClass({
-  render: function() {
-    return <li>{this.props.data.text}</li>;
-  }
-});
-var MyComponent = React.createClass({
-  render: function() {
-    return (
-      <ul>
-        {this.props.results.map(function(result) {
-           return <ListItemWrapper key={result.id} data={result}/>;
-        })}
-      </ul>
-    );
-  }
-});
+<Modal.Footer>
+    <Button onClick={this.close}>Close</Button>
+</Modal.Footer>
+<Button bsStyle="primary" bsSize="large"onClick={this.open}>Launch demo modal</Button>
+const popover = (
+    <Popover id="modal-popover" title="popover">very popover.</Popover>
+);
+const tooltip = (
+    <Tooltip id="modal-tooltip">wow.</Tooltip>
+);
 */
 //# sourceMappingURL=maps/components.js.map

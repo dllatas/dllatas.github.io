@@ -1,4 +1,5 @@
 import React from 'react';
+import { Modal } from 'react-bootstrap';
 
 export const Bio = (props) => <p className='lead'>{props.bio}</p>
 
@@ -11,22 +12,57 @@ export const Jumbotron = (props) => (
         </div>
 )
 
-export const Desc = (props) => <p>{props.desc}</p>
+export const Desc = (props) => <p className="text-justify">{props.desc}</p>
 
 export const Project = (props) => <h4>{props.project}</h4>
 
+export class ProjectModal extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {showModal: false};
+        this.open = this.open.bind(this);
+        this.close = this.close.bind(this);
+    }
+    open() {
+        this.setState({ showModal: true });
+    }
+    close() {
+        this.setState({ showModal: false });
+    }
+    render() {
+        return (
+            <div>
+                <Modal show={this.state.showModal} onHide={this.close}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>Modal heading</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <h4>{this.props.project}</h4>
+                        <p>{this.props.desc}</p>
+                        <hr />
+                        <h4>Tasks</h4>
+                        <p>{this.props.task}</p>
+                    </Modal.Body>
+                </Modal>
+            </div>
+        );
+    }
+};
+
+export const Launch = (props) => <button onClick={ProjectModal.open}>Launch demo modal</button>
+
 export const Line12 = (props) => (
-    <div className="col-lg-12">
+    <article className="col-lg-12">
         <Project project={props.project}/>
         <Desc desc={props.desc}/>
-    </div>
+    </article>
 )
 
 export const Line6 = (props) => (
-    <div className="col-lg-6">
-        <Project project={props.project}/>
+    <article className="col-lg-6">
+        <Project project={props.project} desc={"asdf"} task={"asdf"}/>
         <Desc desc={props.desc}/>
-    </div>
+    </article>
 )
 
 export const Row12 = (props) => (
@@ -36,32 +72,22 @@ export const Row12 = (props) => (
 )
 
 export const Row6 = (props) => (
-    <div key="0" className="row marketing">
+    <div className="row marketing">
         {props.data.map(function(data) {
            return <Line6 key={data.id} project={data.project} desc={data.desc} />
         })}
     </div>
 )
 
-
 /*
-var ListItemWrapper = React.createClass({
-  render: function() {
-    return <li>{this.props.data.text}</li>;
-  }
-});
-var MyComponent = React.createClass({
-  render: function() {
-    return (
-      <ul>
-        {this.props.results.map(function(result) {
-           return <ListItemWrapper key={result.id} data={result}/>;
-        })}
-      </ul>
-    );
-  }
-});
+<Modal.Footer>
+    <Button onClick={this.close}>Close</Button>
+</Modal.Footer>
+<Button bsStyle="primary" bsSize="large"onClick={this.open}>Launch demo modal</Button>
+const popover = (
+    <Popover id="modal-popover" title="popover">very popover.</Popover>
+);
+const tooltip = (
+    <Tooltip id="modal-tooltip">wow.</Tooltip>
+);
 */
-
-
-
