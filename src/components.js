@@ -1,5 +1,6 @@
 import React from 'react';
 import { Modal } from 'react-bootstrap';
+import * as Content from './content.js';
 
 export const Bio = props => React.createElement(
     'p',
@@ -35,15 +36,36 @@ export const Project = props => React.createElement(
 export class ProjectModal extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { showModal: false };
+        this.state = { showModal: false, project: "", desc: "", task: "", date: "", task: [] };
         this.open = this.open.bind(this);
         this.close = this.close.bind(this);
+        this.update = this.update.bind(this);
+    }
+    update() {
+        let el = event.target;
+        let children = el.children;
+        if (children.length === 0) {
+            el = event.target.parentElement;
+            children = el.children;
+        }
+        /* Nasty thingy to be modular */
+        let project = Content.detail.filter(index => {
+            return index.project === children[0].innerText;
+        });
+        this.setState({ showModal: true, project: project[0].project,
+            desc: project[0].content, date: project[0].date, task: project[0].task });
     }
     open() {
         this.setState({ showModal: true });
     }
     close() {
         this.setState({ showModal: false });
+    }
+    componentDidMount() {
+        const projectElements = document.getElementsByClassName("project");
+        for (var i = 0; i < projectElements.length; i++) {
+            projectElements[i].addEventListener('click', this.update, false);
+        }
     }
     render() {
         return React.createElement(
@@ -58,21 +80,22 @@ export class ProjectModal extends React.Component {
                     React.createElement(
                         Modal.Title,
                         null,
-                        'Modal heading'
+                        this.state.project
                     )
                 ),
                 React.createElement(
                     Modal.Body,
                     null,
                     React.createElement(
-                        'h4',
+                        'p',
                         null,
-                        this.props.project
+                        this.state.date
                     ),
+                    React.createElement('hr', null),
                     React.createElement(
                         'p',
                         null,
-                        this.props.desc
+                        this.state.desc
                     ),
                     React.createElement('hr', null),
                     React.createElement(
@@ -80,22 +103,18 @@ export class ProjectModal extends React.Component {
                         null,
                         'Tasks'
                     ),
-                    React.createElement(
-                        'p',
-                        null,
-                        this.props.task
-                    )
+                    this.state.task.map(function (task) {
+                        return React.createElement(
+                            'p',
+                            null,
+                            task
+                        );
+                    })
                 )
             )
         );
     }
 };
-
-export const Launch = props => React.createElement(
-    'button',
-    { onClick: ProjectModal.open },
-    'Launch demo modal'
-);
 
 export const Line12 = props => React.createElement(
     'article',
@@ -106,8 +125,8 @@ export const Line12 = props => React.createElement(
 
 export const Line6 = props => React.createElement(
     'article',
-    { className: 'col-lg-6' },
-    React.createElement(Project, { project: props.project, desc: "asdf", task: "asdf" }),
+    { className: 'col-lg-6 project' },
+    React.createElement(Project, { project: props.project }),
     React.createElement(Desc, { desc: props.desc })
 );
 
@@ -124,17 +143,4 @@ export const Row6 = props => React.createElement(
         return React.createElement(Line6, { key: data.id, project: data.project, desc: data.desc });
     })
 );
-
-/*
-<Modal.Footer>
-    <Button onClick={this.close}>Close</Button>
-</Modal.Footer>
-<Button bsStyle="primary" bsSize="large"onClick={this.open}>Launch demo modal</Button>
-const popover = (
-    <Popover id="modal-popover" title="popover">very popover.</Popover>
-);
-const tooltip = (
-    <Tooltip id="modal-tooltip">wow.</Tooltip>
-);
-*/
 //# sourceMappingURL=maps/components.js.map

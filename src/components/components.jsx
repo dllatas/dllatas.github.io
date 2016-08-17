@@ -1,5 +1,6 @@
 import React from 'react';
 import { Modal } from 'react-bootstrap';
+import * as Content from './content.js';
 
 export const Bio = (props) => <p className='lead'>{props.bio}</p>
 
@@ -19,9 +20,24 @@ export const Project = (props) => <h4>{props.project}</h4>
 export class ProjectModal extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {showModal: false};
+        this.state = {showModal: false, project: "", desc: "", task: "", date: "", task: []};
         this.open = this.open.bind(this);
         this.close = this.close.bind(this);
+        this.update = this.update.bind(this);
+    }
+    update() {
+        let el = event.target;
+        let children = el.children;
+        if (children.length===0) {
+            el = event.target.parentElement;
+            children = el.children;
+        }
+        /* Nasty thingy to be modular */
+        let project = Content.detail.filter((index) => {
+            return index.project === children[0].innerText;
+        });
+        this.setState({ showModal: true, project: project[0].project,
+            desc: project[0].content, date: project[0].date, task: project[0].task});
     }
     open() {
         this.setState({ showModal: true });
@@ -29,27 +45,36 @@ export class ProjectModal extends React.Component {
     close() {
         this.setState({ showModal: false });
     }
+    componentDidMount() {
+        const projectElements = document.getElementsByClassName("project");
+        for (var i=0; i<projectElements.length; i++) {
+            projectElements[i].addEventListener('click', this.update, false);
+        }
+    }
     render() {
         return (
             <div>
                 <Modal show={this.state.showModal} onHide={this.close}>
                     <Modal.Header closeButton>
-                        <Modal.Title>Modal heading</Modal.Title>
+                        <Modal.Title>{this.state.project}</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        <h4>{this.props.project}</h4>
-                        <p>{this.props.desc}</p>
+                        <p>{this.state.date}</p>
+                        <hr />
+                        <p>{this.state.desc}</p>
                         <hr />
                         <h4>Tasks</h4>
-                        <p>{this.props.task}</p>
+                        {
+                            this.state.task.map(function(task) {
+                                return <p>{task}</p>
+                            })
+                        }
                     </Modal.Body>
                 </Modal>
             </div>
         );
     }
 };
-
-export const Launch = (props) => <button onClick={ProjectModal.open}>Launch demo modal</button>
 
 export const Line12 = (props) => (
     <article className="col-lg-12">
@@ -59,8 +84,8 @@ export const Line12 = (props) => (
 )
 
 export const Line6 = (props) => (
-    <article className="col-lg-6">
-        <Project project={props.project} desc={"asdf"} task={"asdf"}/>
+    <article className="col-lg-6 project">
+        <Project project={props.project}/>
         <Desc desc={props.desc}/>
     </article>
 )
@@ -78,16 +103,3 @@ export const Row6 = (props) => (
         })}
     </div>
 )
-
-/*
-<Modal.Footer>
-    <Button onClick={this.close}>Close</Button>
-</Modal.Footer>
-<Button bsStyle="primary" bsSize="large"onClick={this.open}>Launch demo modal</Button>
-const popover = (
-    <Popover id="modal-popover" title="popover">very popover.</Popover>
-);
-const tooltip = (
-    <Tooltip id="modal-tooltip">wow.</Tooltip>
-);
-*/
