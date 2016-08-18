@@ -18,7 +18,7 @@ export const Subheader2 = props => React.createElement(
 
 export const Heading = props => React.createElement(
     'h1',
-    { className: 'text-right' },
+    { className: 'text-left' },
     props.heading
 );
 

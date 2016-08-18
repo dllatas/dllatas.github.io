@@ -40,7 +40,7 @@ var Subheader2 = exports.Subheader2 = function Subheader2(props) {
 };
 
 var Heading = exports.Heading = function Heading(props) {
-    return _react2.default.createElement('h1', { className: 'text-right' }, props.heading);
+    return _react2.default.createElement('h1', { className: 'text-left' }, props.heading);
 };
 
 var Jumbotron = exports.Jumbotron = function Jumbotron(props) {

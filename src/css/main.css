@@ -18,7 +18,7 @@ article {
 }
 
 .jumbotron h1 {
-    font-size: 80px;
+    font-size: 90px;
     margin-bottom: 0px;
 }
 
@@ -41,11 +41,13 @@ article {
 }
 
 .sub-header {
+    font-family: 'Scope One', serif;
     font-size: 35px;
     margin-bottom: 5px;
 }
 
 .sub-header-2 {
+    font-family: 'Coming Soon', cursive;
     font-size: 22px;
     margin-bottom: 10px;
 }

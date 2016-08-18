@@ -8,7 +8,7 @@ export const Subheader = (props) => <p className='sub-header text-left '>{props.
 
 export const Subheader2 = (props) => <p className='sub-header-2 text-left'>{props.text}</p>
 
-export const Heading = (props) => <h1 className='text-right'>{props.heading}</h1>
+export const Heading = (props) => <h1 className='text-left'>{props.heading}</h1>
 
 export const Jumbotron = (props) => (
         <div className="jumbotron">
