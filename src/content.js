@@ -1,45 +1,53 @@
+export const jumbotron = [
+    {
+        heading: "welcome!"
+        , motto: "the broad spectrum of life seduces me"
+        , name: "daniel llatas spiers"
+        , misc: [
+            "computer scientist, music enthusiast",
+            "lima, peru (1989 - 2014) uppsala, sweden (2014 - today)"
+        ]
+    }
+];
+
 export const main = [
     {
         id: "1",
-        project: "facial emotion detection",
-        desc: "Research conducted at Social Robotics Lab in Uppsala University. The main goal was to train a multi classifier on six facial emotions using deep learning techniques such as convolutional neural networks."}
+        project: "facial emotion detection using deep learning",
+        desc: "Research conducted at Social Robotics Lab in Uppsala University."}
     , {
         id: "2",
+        project: "bot twitter account detection",
+        desc: "Project that aims to classify a twitter account as a human or a bot."}
+    , {
+        id: "3",
         project: "MoNAD",
-        desc: "Project CS is a collaboration between Uppsala University and Ericsson Research. This project was aimed to develop an open source platform to optimize the use of public transportation. MoNAD stands for Mobile Network Assisted Driving."}
+        desc: "Open source platform to optimize the use of public transportation."}
     , {
         id: "4",
         project: "eese data",
-        desc: "“EESE data” is an app that helps International Labour Office (ILO) to report indicators on five contexts: macro and micro economics, institutional, environmental and social. Currently, it is being used in all the regions around the world."}
-    , {
-        id: "3",
-        project: "bot twitter account detection",
-        desc: "As part of the Machine learning course, this project was aimed to explore the functionality of a selected method. A binary classification was developed using Matlab to classify when a twitter account was human or bot. "}
-    , {
+        desc: "International Labour Office (ILO) app that reports indicators on several contexts."}
+    ,  {
         id: "5",
         project: "the flying dutchman",
-        desc: "User inteface programming course project."}
+        desc: "Web app that handles the daily operations of a bar."}
     , {
         id: "6",
         project: "brick breaker",
-        desc: "User inteface programming 2 course project."}
+        desc: "The classic arcade game now entertaining people on the web."}
     , {
         id: "7",
         project: "metAleph",
-        desc: "According to Borges: '... the Aleph is a point in space that contains all other points. Anyone who gazes into it can see everything in the universe from every angle simultaneously, without distortion, overlapping or confusion ...' and meta goes for abstraction: an Aleph explaining itself. This is a data - driven startup!!!"}
+        desc: "Web page for metAleph."}
     , {
         id: "8",
         project: "resolana",
-        desc: "Music project. A single with two songs: resolana and cintas. It was recorded and produced with the help of Mariana Roggero and Louis Schofield."}
-    , {
-        id: "9",
-        project: "wijkmanska blecket",
-        desc: "Uplands Nation student orchestra."}
+        desc: "Single containing a pair of songs full of melancholy."}
 ];
 
 export const detail = [
     {
-        project: "facial emotion detection",
+        project: "facial emotion detection using deep learning",
         date : "Jan 2016 - Jun 2016",
         content: "This project is my master thesis. It was part of the research conducted at Social Robotics Lab in Uppsala University. The main goal was to train a multi classifier on six facial emotions using deep learning techniques such as convolutional neural networks.",
         task: [
@@ -114,16 +122,6 @@ export const detail = [
     , {
         project: "resolana",
         date: "Jan 2014 - Jul 2014",
-        content: "",
-        task: [
-            ""
-            , ""
-            , ""
-        ]
-    }
-    , {
-        project: "wijkmanska blecket",
-        date: "Jan 2015 - today",
         content: "",
         task: [
             ""

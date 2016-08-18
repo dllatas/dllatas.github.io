@@ -2,15 +2,23 @@ import React from 'react';
 import { Modal } from 'react-bootstrap';
 import * as Content from './content.js';
 
-export const Bio = props => React.createElement(
+//export const Subheader = (props) => <p className='lead text-left sub-header'>{props.text}</p>
+
+export const Subheader = props => React.createElement(
     'p',
-    { className: 'lead' },
-    props.bio
+    { className: 'sub-header text-left ' },
+    props.text
+);
+
+export const Subheader2 = props => React.createElement(
+    'p',
+    { className: 'sub-header-2 text-left' },
+    props.text
 );
 
 export const Heading = props => React.createElement(
     'h1',
-    null,
+    { className: 'text-right' },
     props.heading
 );
 
@@ -18,19 +26,26 @@ export const Jumbotron = props => React.createElement(
     'div',
     { className: 'jumbotron' },
     React.createElement(Heading, { heading: props.heading }),
-    React.createElement(Bio, { bio: props.bio })
+    React.createElement(Subheader, { text: props.name }),
+    props.misc.map(misc => {
+        return React.createElement(Subheader2, { key: misc, text: misc });
+    })
 );
 
 export const Desc = props => React.createElement(
     'p',
-    { className: 'text-justify' },
+    { className: 'text-justify project-desc' },
     props.desc
 );
 
 export const Project = props => React.createElement(
     'h4',
-    null,
-    props.project
+    { className: 'project-title' },
+    React.createElement(
+        'strong',
+        null,
+        props.project
+    )
 );
 
 export class ProjectModal extends React.Component {
@@ -48,7 +63,6 @@ export class ProjectModal extends React.Component {
             el = event.target.parentElement;
             children = el.children;
         }
-        /* Nasty thingy to be modular */
         let project = Content.detail.filter(index => {
             return index.project === children[0].innerText;
         });
@@ -106,7 +120,7 @@ export class ProjectModal extends React.Component {
                     this.state.task.map(function (task) {
                         return React.createElement(
                             'p',
-                            null,
+                            { key: task },
                             task
                         );
                     })
@@ -120,7 +134,9 @@ export const Line12 = props => React.createElement(
     'article',
     { className: 'col-lg-12' },
     React.createElement(Project, { project: props.project }),
-    React.createElement(Desc, { desc: props.desc })
+    props.desc.map(desc => {
+        return React.createElement(Desc, { key: desc, desc: desc });
+    })
 );
 
 export const Line6 = props => React.createElement(

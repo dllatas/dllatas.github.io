@@ -2,20 +2,27 @@ import React from 'react';
 import { Modal } from 'react-bootstrap';
 import * as Content from './content.js';
 
-export const Bio = (props) => <p className='lead'>{props.bio}</p>
+//export const Subheader = (props) => <p className='lead text-left sub-header'>{props.text}</p>
 
-export const Heading = (props) => <h1>{props.heading}</h1>
+export const Subheader = (props) => <p className='sub-header text-left '>{props.text}</p>
+
+export const Subheader2 = (props) => <p className='sub-header-2 text-left'>{props.text}</p>
+
+export const Heading = (props) => <h1 className='text-right'>{props.heading}</h1>
 
 export const Jumbotron = (props) => (
         <div className="jumbotron">
             <Heading heading={props.heading}/>
-            <Bio bio={props.bio}/>
+            <Subheader text={props.name}/>
+            {props.misc.map( (misc) => {
+                return <Subheader2 key={misc} text={misc}/>
+            })}
         </div>
 )
 
-export const Desc = (props) => <p className="text-justify">{props.desc}</p>
+export const Desc = (props) => <p className="text-justify project-desc">{props.desc}</p>
 
-export const Project = (props) => <h4>{props.project}</h4>
+export const Project = (props) => <h4 className="project-title"><strong>{props.project}</strong></h4>
 
 export class ProjectModal extends React.Component {
     constructor(props) {
@@ -32,7 +39,6 @@ export class ProjectModal extends React.Component {
             el = event.target.parentElement;
             children = el.children;
         }
-        /* Nasty thingy to be modular */
         let project = Content.detail.filter((index) => {
             return index.project === children[0].innerText;
         });
@@ -66,7 +72,7 @@ export class ProjectModal extends React.Component {
                         <h4>Tasks</h4>
                         {
                             this.state.task.map(function(task) {
-                                return <p>{task}</p>
+                                return <p key={task}>{task}</p>
                             })
                         }
                     </Modal.Body>
@@ -79,7 +85,9 @@ export class ProjectModal extends React.Component {
 export const Line12 = (props) => (
     <article className="col-lg-12">
         <Project project={props.project}/>
-        <Desc desc={props.desc}/>
+        {props.desc.map( (desc) => {
+            return <Desc key={desc} desc={desc}/>
+        })}
     </article>
 )
 

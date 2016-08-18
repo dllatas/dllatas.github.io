@@ -6,9 +6,21 @@ var gulp = require('gulp'),
     source = require('vinyl-source-stream'),
     buffer = require('vinyl-buffer'),
     uglify = require('gulp-uglify'),
-    gutil = require('gulp-util');
+    gutil = require('gulp-util'),
+    cleanCSS = require('gulp-clean-css');
 
-gulp.task('jsx', function() {
+gulp.task('css', function() {
+    return gulp.src(['./src/css/bootstrap.min.css','./src/css/bootstrap-theme.min.css',
+            './src/css/jumbotron-narrow.css','./src/css/main.css'])
+        .pipe(concat('main.css'))
+        .pipe(sourcemaps.init())
+        //.pipe(cleanCSS({compatibility: 'ie8'}))
+        .pipe(cleanCSS())
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest('./dist/css'));
+});
+
+gulp.task('jsx', ['css'], function() {
     return gulp.src(['src/components/*.jsx', 'src/components/*.js'])
         .pipe(sourcemaps.init())
         .pipe(babel({
@@ -48,6 +60,7 @@ gulp.task('browserify', ['es6'], function () {
 gulp.task('watch', ['browserify'], function() {
     gulp.watch(['src/components/*.jsx', 'src/components/*.js'], ['browserify']);
     gulp.watch('src/*.js', ['browserify']);
+    gulp.watch('src/css/*.css', ['browserify']);
 });
 
 gulp.task('default', ['watch']);

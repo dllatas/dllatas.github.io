@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.Row6 = exports.Row12 = exports.Line6 = exports.Line12 = exports.ProjectModal = exports.Project = exports.Desc = exports.Jumbotron = exports.Heading = exports.Bio = undefined;
+exports.Row6 = exports.Row12 = exports.Line6 = exports.Line12 = exports.ProjectModal = exports.Project = exports.Desc = exports.Jumbotron = exports.Heading = exports.Subheader2 = exports.Subheader = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -29,24 +29,32 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Bio = exports.Bio = function Bio(props) {
-    return _react2.default.createElement('p', { className: 'lead' }, props.bio);
+//export const Subheader = (props) => <p className='lead text-left sub-header'>{props.text}</p>
+
+var Subheader = exports.Subheader = function Subheader(props) {
+    return _react2.default.createElement('p', { className: 'sub-header text-left ' }, props.text);
+};
+
+var Subheader2 = exports.Subheader2 = function Subheader2(props) {
+    return _react2.default.createElement('p', { className: 'sub-header-2 text-left' }, props.text);
 };
 
 var Heading = exports.Heading = function Heading(props) {
-    return _react2.default.createElement('h1', null, props.heading);
+    return _react2.default.createElement('h1', { className: 'text-right' }, props.heading);
 };
 
 var Jumbotron = exports.Jumbotron = function Jumbotron(props) {
-    return _react2.default.createElement('div', { className: 'jumbotron' }, _react2.default.createElement(Heading, { heading: props.heading }), _react2.default.createElement(Bio, { bio: props.bio }));
+    return _react2.default.createElement('div', { className: 'jumbotron' }, _react2.default.createElement(Heading, { heading: props.heading }), _react2.default.createElement(Subheader, { text: props.name }), props.misc.map(function (misc) {
+        return _react2.default.createElement(Subheader2, { key: misc, text: misc });
+    }));
 };
 
 var Desc = exports.Desc = function Desc(props) {
-    return _react2.default.createElement('p', { className: 'text-justify' }, props.desc);
+    return _react2.default.createElement('p', { className: 'text-justify project-desc' }, props.desc);
 };
 
 var Project = exports.Project = function Project(props) {
-    return _react2.default.createElement('h4', null, props.project);
+    return _react2.default.createElement('h4', { className: 'project-title' }, _react2.default.createElement('strong', null, props.project));
 };
 
 var ProjectModal = exports.ProjectModal = function (_React$Component) {
@@ -73,7 +81,6 @@ var ProjectModal = exports.ProjectModal = function (_React$Component) {
                 el = event.target.parentElement;
                 children = el.children;
             }
-            /* Nasty thingy to be modular */
             var project = Content.detail.filter(function (index) {
                 return index.project === children[0].innerText;
             });
@@ -102,7 +109,7 @@ var ProjectModal = exports.ProjectModal = function (_React$Component) {
         key: 'render',
         value: function render() {
             return _react2.default.createElement('div', null, _react2.default.createElement(_reactBootstrap.Modal, { show: this.state.showModal, onHide: this.close }, _react2.default.createElement(_reactBootstrap.Modal.Header, { closeButton: true }, _react2.default.createElement(_reactBootstrap.Modal.Title, null, this.state.project)), _react2.default.createElement(_reactBootstrap.Modal.Body, null, _react2.default.createElement('p', null, this.state.date), _react2.default.createElement('hr', null), _react2.default.createElement('p', null, this.state.desc), _react2.default.createElement('hr', null), _react2.default.createElement('h4', null, 'Tasks'), this.state.task.map(function (task) {
-                return _react2.default.createElement('p', null, task);
+                return _react2.default.createElement('p', { key: task }, task);
             }))));
         }
     }]);
@@ -113,7 +120,9 @@ var ProjectModal = exports.ProjectModal = function (_React$Component) {
 ;
 
 var Line12 = exports.Line12 = function Line12(props) {
-    return _react2.default.createElement('article', { className: 'col-lg-12' }, _react2.default.createElement(Project, { project: props.project }), _react2.default.createElement(Desc, { desc: props.desc }));
+    return _react2.default.createElement('article', { className: 'col-lg-12' }, _react2.default.createElement(Project, { project: props.project }), props.desc.map(function (desc) {
+        return _react2.default.createElement(Desc, { key: desc, desc: desc });
+    }));
 };
 
 var Line6 = exports.Line6 = function Line6(props) {

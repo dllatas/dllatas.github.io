@@ -5,8 +5,9 @@ import * as Content from './content.js';
 
 ReactDOM.render(
     <section>
-        <Components.Jumbotron heading={"welcome!"} bio={"the broad spectrum of life seduces me"} />
-        <Components.Row12 project={"daniel llatas spiers"} desc={"lima, peru (1989 - 2014) uppsala, sweden (2014 - today)"} />
+        <Components.Jumbotron heading={Content.jumbotron[0].heading}
+            name={Content.jumbotron[0].name}
+            misc={Content.jumbotron[0].misc}/>
         <Components.Row6 data={Content.main} />
         <Components.ProjectModal />
     </section>,

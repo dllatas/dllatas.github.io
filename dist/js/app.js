@@ -20,6 +20,8 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_reactDom2.default.render(_react2.default.createElement('section', null, _react2.default.createElement(Components.Jumbotron, { heading: "welcome!", bio: "the broad spectrum of life seduces me" }), _react2.default.createElement(Components.Row12, { project: "daniel llatas spiers", desc: "lima, peru (1989 - 2014) uppsala, sweden (2014 - today)" }), _react2.default.createElement(Components.Row6, { data: Content.main }), _react2.default.createElement(Components.ProjectModal, null)), document.getElementById('container'));
+_reactDom2.default.render(_react2.default.createElement('section', null, _react2.default.createElement(Components.Jumbotron, { heading: Content.jumbotron[0].heading,
+    name: Content.jumbotron[0].name,
+    misc: Content.jumbotron[0].misc }), _react2.default.createElement(Components.Row6, { data: Content.main }), _react2.default.createElement(Components.ProjectModal, null)), document.getElementById('container'));
 //# sourceMappingURL=maps/app.js.map
 //# sourceMappingURL=maps/app.js.map
