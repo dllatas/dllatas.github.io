@@ -21,8 +21,6 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -65,7 +63,8 @@ var ProjectModal = exports.ProjectModal = function (_React$Component) {
 
         var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ProjectModal).call(this, props));
 
-        _this.state = _defineProperty({ showModal: false, project: "", desc: "", task: "", date: "" }, 'task', []);
+        _this.state = {
+            showModal: false, project: "", desc: "", date: "", task: [], url: [] };
         _this.open = _this.open.bind(_this);
         _this.close = _this.close.bind(_this);
         _this.update = _this.update.bind(_this);
@@ -81,11 +80,12 @@ var ProjectModal = exports.ProjectModal = function (_React$Component) {
                 el = event.target.parentElement;
                 children = el.children;
             }
-            var project = Content.detail.filter(function (index) {
-                return index.project === children[0].innerText;
+            var project = Content.detail.filter(function (detail) {
+                return detail.project === children[0].innerText;
             });
+            console.log(project[0].url);
             this.setState({ showModal: true, project: project[0].project,
-                desc: project[0].content, date: project[0].date, task: project[0].task });
+                desc: project[0].content, date: project[0].date, task: project[0].task, url: project[0].url });
         }
     }, {
         key: 'open',
@@ -108,8 +108,10 @@ var ProjectModal = exports.ProjectModal = function (_React$Component) {
     }, {
         key: 'render',
         value: function render() {
-            return _react2.default.createElement('div', null, _react2.default.createElement(_reactBootstrap.Modal, { show: this.state.showModal, onHide: this.close }, _react2.default.createElement(_reactBootstrap.Modal.Header, { closeButton: true }, _react2.default.createElement(_reactBootstrap.Modal.Title, null, this.state.project)), _react2.default.createElement(_reactBootstrap.Modal.Body, null, _react2.default.createElement('p', null, this.state.date), _react2.default.createElement('hr', null), _react2.default.createElement('p', null, this.state.desc), _react2.default.createElement('hr', null), _react2.default.createElement('h4', null, 'Tasks'), this.state.task.map(function (task) {
-                return _react2.default.createElement('p', { key: task }, task);
+            return _react2.default.createElement('div', null, _react2.default.createElement(_reactBootstrap.Modal, { show: this.state.showModal, onHide: this.close }, _react2.default.createElement(_reactBootstrap.Modal.Header, { closeButton: true }, _react2.default.createElement(_reactBootstrap.Modal.Title, { className: 'text-center modal-header-title' }, this.state.project)), _react2.default.createElement(_reactBootstrap.Modal.Body, null, _react2.default.createElement('h4', { className: 'modal-body-title' }, 'When?'), _react2.default.createElement('p', { className: 'modal-body-desc' }, this.state.date), _react2.default.createElement('p', null, this.state.url.map(function (url) {
+                return _react2.default.createElement('a', { key: url.key, target: '_blank', href: url.link }, url.label, '. ');
+            })), _react2.default.createElement('hr', null), _react2.default.createElement('h4', { className: 'modal-body-title' }, 'What?'), _react2.default.createElement('p', { className: 'modal-body-desc' }, this.state.desc), _react2.default.createElement('hr', null), _react2.default.createElement('h4', { className: 'modal-body-title' }, 'Collaboration'), this.state.task.map(function (task) {
+                return _react2.default.createElement('p', { className: 'modal-body-desc', key: task }, _react2.default.createElement('span', { className: 'glyphicon glyphicon-menu-right', 'aria-hidden': 'true' }), task);
             }))));
         }
     }]);

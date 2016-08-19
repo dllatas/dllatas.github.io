@@ -48,6 +48,24 @@ article {
 
 .sub-header-2 {
     font-family: 'Coming Soon', cursive;
-    font-size: 22px;
+    font-size: 16px;
     margin-bottom: 10px;
+}
+
+.modal-header-title {
+    font-family: 'Scope One', serif;
+    font-size: 22px;
+    font-weight: bold;
+
+}
+
+.modal-body-title {
+    font-family: 'Scope One', serif;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.modal-body-desc {
+    font-family: 'Coming Soon', cursive;
+    font-size: 16px;
 }

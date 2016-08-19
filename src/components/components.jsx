@@ -27,7 +27,8 @@ export const Project = (props) => <h4 className="project-title"><strong>{props.p
 export class ProjectModal extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {showModal: false, project: "", desc: "", task: "", date: "", task: []};
+        this.state = {
+            showModal: false, project: "", desc: "", date: "", task: [], url: []};
         this.open = this.open.bind(this);
         this.close = this.close.bind(this);
         this.update = this.update.bind(this);
@@ -39,11 +40,12 @@ export class ProjectModal extends React.Component {
             el = event.target.parentElement;
             children = el.children;
         }
-        let project = Content.detail.filter((index) => {
-            return index.project === children[0].innerText;
+        let project = Content.detail.filter((detail) => {
+            return detail.project === children[0].innerText;
         });
+        console.log(project[0].url);
         this.setState({ showModal: true, project: project[0].project,
-            desc: project[0].content, date: project[0].date, task: project[0].task});
+            desc: project[0].content, date: project[0].date, task: project[0].task, url: project[0].url});
     }
     open() {
         this.setState({ showModal: true });
@@ -62,17 +64,33 @@ export class ProjectModal extends React.Component {
             <div>
                 <Modal show={this.state.showModal} onHide={this.close}>
                     <Modal.Header closeButton>
-                        <Modal.Title>{this.state.project}</Modal.Title>
+                        <Modal.Title className="text-center modal-header-title">
+                            {this.state.project}
+                        </Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        <p>{this.state.date}</p>
+                        <h4 className="modal-body-title">When?</h4>
+                        <p className="modal-body-desc">{this.state.date}</p>
+                        <p>
+                        {
+                            this.state.url.map((url) => {
+                                return <a key={url.key} target="_blank" href={url.link}>{url.label}. </a>
+                            })
+                        }
+                        </p>
                         <hr />
-                        <p>{this.state.desc}</p>
+                        <h4 className="modal-body-title">What?</h4>
+                        <p className="modal-body-desc">{this.state.desc}</p>
                         <hr />
-                        <h4>Tasks</h4>
+                        <h4 className="modal-body-title">Collaboration</h4>
                         {
                             this.state.task.map(function(task) {
-                                return <p key={task}>{task}</p>
+                                return (
+                                    <p className="modal-body-desc" key={task}>
+                                        <span className="glyphicon glyphicon-menu-right" aria-hidden="true">
+                                        </span>
+                                        {task}
+                                    </p>);
                             })
                         }
                     </Modal.Body>

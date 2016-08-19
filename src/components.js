@@ -51,7 +51,8 @@ export const Project = props => React.createElement(
 export class ProjectModal extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { showModal: false, project: "", desc: "", task: "", date: "", task: [] };
+        this.state = {
+            showModal: false, project: "", desc: "", date: "", task: [], url: [] };
         this.open = this.open.bind(this);
         this.close = this.close.bind(this);
         this.update = this.update.bind(this);
@@ -63,11 +64,12 @@ export class ProjectModal extends React.Component {
             el = event.target.parentElement;
             children = el.children;
         }
-        let project = Content.detail.filter(index => {
-            return index.project === children[0].innerText;
+        let project = Content.detail.filter(detail => {
+            return detail.project === children[0].innerText;
         });
+        console.log(project[0].url);
         this.setState({ showModal: true, project: project[0].project,
-            desc: project[0].content, date: project[0].date, task: project[0].task });
+            desc: project[0].content, date: project[0].date, task: project[0].task, url: project[0].url });
     }
     open() {
         this.setState({ showModal: true });
@@ -93,7 +95,7 @@ export class ProjectModal extends React.Component {
                     { closeButton: true },
                     React.createElement(
                         Modal.Title,
-                        null,
+                        { className: 'text-center modal-header-title' },
                         this.state.project
                     )
                 ),
@@ -101,26 +103,49 @@ export class ProjectModal extends React.Component {
                     Modal.Body,
                     null,
                     React.createElement(
+                        'h4',
+                        { className: 'modal-body-title' },
+                        'When?'
+                    ),
+                    React.createElement(
                         'p',
-                        null,
+                        { className: 'modal-body-desc' },
                         this.state.date
                     ),
-                    React.createElement('hr', null),
                     React.createElement(
                         'p',
                         null,
+                        this.state.url.map(url => {
+                            return React.createElement(
+                                'a',
+                                { key: url.key, target: '_blank', href: url.link },
+                                url.label,
+                                '. '
+                            );
+                        })
+                    ),
+                    React.createElement('hr', null),
+                    React.createElement(
+                        'h4',
+                        { className: 'modal-body-title' },
+                        'What?'
+                    ),
+                    React.createElement(
+                        'p',
+                        { className: 'modal-body-desc' },
                         this.state.desc
                     ),
                     React.createElement('hr', null),
                     React.createElement(
                         'h4',
-                        null,
-                        'Tasks'
+                        { className: 'modal-body-title' },
+                        'Collaboration'
                     ),
                     this.state.task.map(function (task) {
                         return React.createElement(
                             'p',
-                            { key: task },
+                            { className: 'modal-body-desc', key: task },
+                            React.createElement('span', { className: 'glyphicon glyphicon-menu-right', 'aria-hidden': 'true' }),
                             task
                         );
                     })

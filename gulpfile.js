@@ -60,7 +60,7 @@ gulp.task('browserify', ['es6'], function () {
 gulp.task('watch', ['browserify'], function() {
     gulp.watch(['src/components/*.jsx', 'src/components/*.js'], ['browserify']);
     gulp.watch('src/*.js', ['browserify']);
-    gulp.watch('src/css/*.css', ['browserify']);
+    gulp.watch('src/css/*.css', ['css']);
 });
 
 gulp.task('default', ['watch']);
