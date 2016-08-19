@@ -10,8 +10,8 @@ var gulp = require('gulp'),
     cleanCSS = require('gulp-clean-css');
 
 gulp.task('css', function() {
-    return gulp.src(['./src/css/bootstrap.min.css','./src/css/bootstrap-theme.min.css',
-            './src/css/jumbotron-narrow.css','./src/css/main.css'])
+    return gulp.src(['./src/css/bootstrap.min.css', './src/css/bootstrap-theme.min.css',
+            './src/css/jumbotron-narrow.css', './src/css/custom-fonts.css', './src/css/main.css'])
         .pipe(concat('main.css'))
         .pipe(sourcemaps.init())
         //.pipe(cleanCSS({compatibility: 'ie8'}))
@@ -57,9 +57,18 @@ gulp.task('browserify', ['es6'], function () {
         .pipe(gulp.dest('dist/'));
 });
 
-gulp.task('watch', ['browserify'], function() {
-    gulp.watch(['src/components/*.jsx', 'src/components/*.js'], ['browserify']);
-    gulp.watch('src/*.js', ['browserify']);
+gulp.task('js-concat', ['browserify'], function() {
+    return gulp.src(['./dist/js/vendor/jquery.min.js', './dist/js/vendor/bootstrap.min.js', './dist/app.js'])
+        .pipe(concat('main.js'))
+        .pipe(sourcemaps.init())
+        .pipe(uglify())
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest('./dist/'));
+});
+
+gulp.task('watch', ['js-concat'], function() {
+    gulp.watch(['src/components/*.jsx', 'src/components/*.js'], ['js-concat']);
+    gulp.watch('src/*.js', ['js-concat']);
     gulp.watch('src/css/*.css', ['css']);
 });
 

@@ -13,7 +13,7 @@ var jumbotron = exports.jumbotron = [{
 var main = exports.main = [{
     id: "1",
     project: "facial emotion detection using deep learning",
-    desc: "Research conducted at Social Robotics Lab in Uppsala University." }, {
+    desc: "Master thesis research conducted at Social Robotics Lab in Uppsala University." }, {
     id: "2",
     project: "bot twitter account detection",
     desc: "Project that aims to classify a twitter account as a human or a bot." }, {

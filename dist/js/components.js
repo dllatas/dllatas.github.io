@@ -83,7 +83,6 @@ var ProjectModal = exports.ProjectModal = function (_React$Component) {
             var project = Content.detail.filter(function (detail) {
                 return detail.project === children[0].innerText;
             });
-            console.log(project[0].url);
             this.setState({ showModal: true, project: project[0].project,
                 desc: project[0].content, date: project[0].date, task: project[0].task, url: project[0].url });
         }
