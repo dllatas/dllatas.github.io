@@ -39,7 +39,7 @@ var main = exports.main = [{
 var detail = exports.detail = [{
     project: "facial emotion detection using deep learning",
     date: "Jan 2016 - Jun 2016",
-    content: "As my master thesis project, I worked under the supervision of professor Ginevra Castellano and PhD candidate Maike Paetzel. Both of them conduct the research at Social Robotics Lab in Uppsala University. The research was focused on developing machine perception by means of machine learning to improve human-machine interaction. From a technical standpoint, the goal was to train a multi classifier on six facial emotions using deep learning techniques such as convolutional neural networks.",
+    content: "On my master thesis project, I was supervised by professor Ginevra Castellano and PhD candidate Maike Paetzel. Both of them conduct the research at Social Robotics Lab in Uppsala University. The research was focused on developing machine perception by means of machine learning to improve human-machine interaction. From a technical standpoint, the goal was to train a multi classifier on six facial emotions using deep learning techniques such as convolutional neural networks.",
     task: ["Image processing of extended Cohn-Kanade dataset and video processing of Affectiva-MIT facial expression dataset using OpenCV 2.4 Python’s library.", "Implementing a convolutional neural network using Google’s TensorFlow 0.7 library. This classifier was trained on static facial images.", "Fine tune the different parameters related to the model: network topology, learning rate, optimizers, kernel size, etc. Explore their impact on the training time and the classification accuracy."],
     url: [{
         key: "1",
@@ -103,7 +103,7 @@ var detail = exports.detail = [{
 }, {
     project: "metAleph",
     date: "Jan 2016",
-    content: "metAleph is an initiative where I collaborate with PhD candidate (and lifetime friend) Cristhian Seminario. The main interest is to develop products to facilitate data handling. The webpage aims to inform about our vision and current projects.",
+    content: "metAleph is an initiative where I collaborate with PhD candidate (and lifetime friend) Cristhian Seminario. Our main interest is to develop products to facilitate data handling. The webpage aims to inform about our vision and current projects.",
     task: ["Design webpage layout taking into account brand identity.", "Implement that layout using HTML5, CSS3 and JS.", "Automate front-end JS development using Gulp."],
     url: [{
         key: "1",
