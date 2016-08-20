@@ -43,6 +43,10 @@ export const main = [
         id: "8",
         project: "resolana",
         desc: "Single containing a pair of songs full of melancholy."}
+    , {
+        id: "9",
+        project: "TVSearch",
+        desc: "Looking for that nice TV show you 've heard about? Check for it here !!"}
 ];
 
 export const detail = [
@@ -186,4 +190,24 @@ export const detail = [
             }
         ]
     }
+    , {
+        project: "TVSearch"
+        , date: "Aug 2016"
+        , content: "TVSearch is a fully JS web app that presents a detailed list of episodes about a particular show."
+        , task: [
+            "Design webpage layout to provide a good user experience."
+            , "Consuming OMDB api for each request."
+            , "Using ES6, Gulp, React and Browserify to run components on the browser."
+        ]
+        , url: [
+            {
+                key: "1"
+                , label: "webpage"
+                , link: "https://dllatas.github.io/tvSearch"
+            }
+        ]
+    }
 ];
+
+
+
