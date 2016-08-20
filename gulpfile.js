@@ -20,7 +20,7 @@ gulp.task('css', function() {
         .pipe(gulp.dest('./dist/css'));
 });
 
-gulp.task('jsx', ['css'], function() {
+gulp.task('jsx', function() {
     return gulp.src(['src/components/*.jsx', 'src/components/*.js'])
         .pipe(sourcemaps.init())
         .pipe(babel({
@@ -54,11 +54,11 @@ gulp.task('browserify', ['es6'], function () {
             .pipe(uglify())
             .on('error', gutil.log)
         .pipe(sourcemaps.write('./'))
-        .pipe(gulp.dest('dist/'));
+        .pipe(gulp.dest('dist/js'));
 });
 
 gulp.task('js-concat', ['browserify'], function() {
-    return gulp.src(['./dist/js/vendor/jquery.min.js', './dist/js/vendor/bootstrap.min.js', './dist/app.js'])
+    return gulp.src(['./dist/js/vendor/jquery.min.js', './dist/js/vendor/bootstrap.min.js', './dist/js/app.js'])
         .pipe(concat('main.js'))
         .pipe(sourcemaps.init())
         .pipe(uglify())
