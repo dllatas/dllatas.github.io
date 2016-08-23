@@ -84,8 +84,8 @@ var detail = exports.detail = [{
     task: ["Get access to MIB dataset.", "Fine tune neural network parameters along with Zingo."],
     url: [{
         key: "1",
-        label: "webpage",
-        link: ""
+        label: "git repository",
+        link: "https://github.com/dllatas/bot-account"
     }]
 }, {
     project: "the flying dutchman",

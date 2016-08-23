@@ -124,8 +124,8 @@ export const detail = [
         , url: [
             {
                 key: "1"
-                , label: "webpage"
-                , link: ""
+                , label: "git repository"
+                , link: "https://github.com/dllatas/bot-account"
             }
         ]
     }
