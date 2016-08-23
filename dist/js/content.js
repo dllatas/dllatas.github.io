@@ -48,6 +48,10 @@ var detail = exports.detail = [{
         key: "1",
         label: "git repository",
         link: "https://github.com/dllatas/deepLearning"
+    }, {
+        key: "2",
+        label: "project webpage",
+        link: "https://dllatas.github.io/deepLearning/"
     }]
 }, {
     project: "MoNAD",
