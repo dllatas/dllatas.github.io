@@ -65,6 +65,11 @@ export const detail = [
                 , label: "git repository"
                 , link: "https://github.com/dllatas/deepLearning"
             }
+            , {
+                key: "2"
+                , label: "project webpage"
+                , link: "https://dllatas.github.io/deepLearning/"
+            }
        ]
     }
     , {
