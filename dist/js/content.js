@@ -52,6 +52,10 @@ var detail = exports.detail = [{
         key: "2",
         label: "project webpage",
         link: "https://dllatas.github.io/deepLearning/"
+    }, {
+        key: "3",
+        label: "publication",
+        link: "http://urn.kb.se/resolve?urn=urn:nbn:se:uu:diva-300712"
     }]
 }, {
     project: "MoNAD",
