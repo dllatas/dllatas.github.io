@@ -67,7 +67,7 @@ export const detail = [
             }
             , {
                 key: "2"
-                , label: "project webpage"
+                , label: "webpage"
                 , link: "https://dllatas.github.io/deepLearning/"
             }
             , {
@@ -163,7 +163,12 @@ export const detail = [
             {
                 key: "1"
                 , label: "git repository"
-                , link: "https://github.com/dllatas/brickBreaker"
+                , link: "https://github.com/dllatas/brick-breaker"
+            }
+            , {
+                key: "2"
+                , label: "webpage"
+                , link: "https://dllatas.github.io/brick-breaker/index.html"
             }
         ]
     }
