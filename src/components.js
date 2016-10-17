@@ -1,186 +1,253 @@
-import React from 'react';
-import { Modal } from 'react-bootstrap';
-import * as Content from './content.js';
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.Row6 = exports.Row12 = exports.Line6 = exports.Line12 = exports.ProjectModal = exports.Project = exports.Desc = exports.Jumbotron = exports.Heading = exports.Subheader2 = exports.Subheader = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactBootstrap = require('react-bootstrap');
+
+var _content = require('./content.js');
+
+var Content = _interopRequireWildcard(_content);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 //export const Subheader = (props) => <p className='lead text-left sub-header'>{props.text}</p>
 
-export const Subheader = props => React.createElement(
-    'p',
-    { className: 'sub-header text-left ' },
-    props.text
-);
-
-export const Subheader2 = props => React.createElement(
-    'p',
-    { className: 'sub-header-2 text-left' },
-    props.text
-);
-
-export const Heading = props => React.createElement(
-    'h1',
-    { className: 'text-left' },
-    props.heading
-);
-
-export const Jumbotron = props => React.createElement(
-    'div',
-    { className: 'jumbotron' },
-    React.createElement(Heading, { heading: props.heading }),
-    React.createElement(Subheader, { text: props.name }),
-    props.misc.map(misc => {
-        return React.createElement(Subheader2, { key: misc, text: misc });
-    })
-);
-
-export const Desc = props => React.createElement(
-    'p',
-    { className: 'text-justify project-desc' },
-    props.desc
-);
-
-export const Project = props => React.createElement(
-    'h4',
-    { className: 'project-title' },
-    React.createElement(
-        'strong',
-        null,
-        props.project
-    )
-);
-
-export class ProjectModal extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            showModal: false, project: "", desc: "", date: "", task: [], url: [] };
-        this.open = this.open.bind(this);
-        this.close = this.close.bind(this);
-        this.update = this.update.bind(this);
-    }
-    update() {
-        let el = event.target;
-        let children = el.children;
-        if (children.length === 0) {
-            el = event.target.parentElement;
-            children = el.children;
-        }
-        let project = Content.detail.filter(detail => {
-            return detail.project === children[0].innerText;
-        });
-        this.setState({ showModal: true, project: project[0].project,
-            desc: project[0].content, date: project[0].date, task: project[0].task, url: project[0].url });
-    }
-    open() {
-        this.setState({ showModal: true });
-    }
-    close() {
-        this.setState({ showModal: false });
-    }
-    componentDidMount() {
-        const projectElements = document.getElementsByClassName("project");
-        for (var i = 0; i < projectElements.length; i++) {
-            projectElements[i].addEventListener('click', this.update, false);
-        }
-    }
-    render() {
-        return React.createElement(
-            'div',
-            null,
-            React.createElement(
-                Modal,
-                { show: this.state.showModal, onHide: this.close },
-                React.createElement(
-                    Modal.Header,
-                    { closeButton: true },
-                    React.createElement(
-                        Modal.Title,
-                        { className: 'text-center modal-header-title' },
-                        this.state.project
-                    )
-                ),
-                React.createElement(
-                    Modal.Body,
-                    null,
-                    React.createElement(
-                        'h4',
-                        { className: 'modal-body-title' },
-                        'When?'
-                    ),
-                    React.createElement(
-                        'p',
-                        { className: 'modal-body-desc' },
-                        this.state.date
-                    ),
-                    React.createElement(
-                        'p',
-                        null,
-                        this.state.url.map(url => {
-                            return React.createElement(
-                                'a',
-                                { key: url.key, target: '_blank', href: url.link },
-                                url.label,
-                                '. '
-                            );
-                        })
-                    ),
-                    React.createElement('hr', null),
-                    React.createElement(
-                        'h4',
-                        { className: 'modal-body-title' },
-                        'What?'
-                    ),
-                    React.createElement(
-                        'p',
-                        { className: 'modal-body-desc' },
-                        this.state.desc
-                    ),
-                    React.createElement('hr', null),
-                    React.createElement(
-                        'h4',
-                        { className: 'modal-body-title' },
-                        'Collaboration'
-                    ),
-                    this.state.task.map(function (task) {
-                        return React.createElement(
-                            'p',
-                            { className: 'modal-body-desc', key: task },
-                            React.createElement('span', { className: 'glyphicon glyphicon-menu-right', 'aria-hidden': 'true' }),
-                            task
-                        );
-                    })
-                )
-            )
-        );
-    }
+var Subheader = exports.Subheader = function Subheader(props) {
+    return _react2.default.createElement(
+        'p',
+        { className: 'sub-header text-left ' },
+        props.text
+    );
 };
 
-export const Line12 = props => React.createElement(
-    'article',
-    { className: 'col-lg-12' },
-    React.createElement(Project, { project: props.project }),
-    props.desc.map(desc => {
-        return React.createElement(Desc, { key: desc, desc: desc });
-    })
-);
+var Subheader2 = exports.Subheader2 = function Subheader2(props) {
+    return _react2.default.createElement(
+        'p',
+        { className: 'sub-header-2 text-left' },
+        props.text
+    );
+};
 
-export const Line6 = props => React.createElement(
-    'article',
-    { className: 'col-lg-6 project' },
-    React.createElement(Project, { project: props.project }),
-    React.createElement(Desc, { desc: props.desc })
-);
+var Heading = exports.Heading = function Heading(props) {
+    return _react2.default.createElement(
+        'h1',
+        { className: 'text-left' },
+        props.heading
+    );
+};
 
-export const Row12 = props => React.createElement(
-    'div',
-    { className: 'row marketing' },
-    React.createElement(Line12, { project: props.project, desc: props.desc })
-);
+var Jumbotron = exports.Jumbotron = function Jumbotron(props) {
+    return _react2.default.createElement(
+        'div',
+        { className: 'jumbotron' },
+        _react2.default.createElement(Heading, { heading: props.heading }),
+        _react2.default.createElement(Subheader, { text: props.name }),
+        props.misc.map(function (misc) {
+            return _react2.default.createElement(Subheader2, { key: misc, text: misc });
+        })
+    );
+};
 
-export const Row6 = props => React.createElement(
-    'div',
-    { className: 'row marketing' },
-    props.data.map(function (data) {
-        return React.createElement(Line6, { key: data.id, project: data.project, desc: data.desc });
-    })
-);
+var Desc = exports.Desc = function Desc(props) {
+    return _react2.default.createElement(
+        'p',
+        { className: 'text-justify project-desc' },
+        props.desc
+    );
+};
+
+var Project = exports.Project = function Project(props) {
+    return _react2.default.createElement(
+        'h4',
+        { className: 'project-title' },
+        _react2.default.createElement(
+            'strong',
+            null,
+            props.project
+        )
+    );
+};
+
+var ProjectModal = exports.ProjectModal = function (_React$Component) {
+    _inherits(ProjectModal, _React$Component);
+
+    function ProjectModal(props) {
+        _classCallCheck(this, ProjectModal);
+
+        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ProjectModal).call(this, props));
+
+        _this.state = {
+            showModal: false, project: "", desc: "", date: "", task: [], url: [] };
+        _this.open = _this.open.bind(_this);
+        _this.close = _this.close.bind(_this);
+        _this.update = _this.update.bind(_this);
+        return _this;
+    }
+
+    _createClass(ProjectModal, [{
+        key: 'update',
+        value: function update() {
+            var el = event.target;
+            var children = el.children;
+            if (children.length === 0) {
+                el = event.target.parentElement;
+                children = el.children;
+            }
+            var project = Content.detail.filter(function (detail) {
+                return detail.project === children[0].innerText;
+            });
+            this.setState({ showModal: true, project: project[0].project,
+                desc: project[0].content, date: project[0].date, task: project[0].task, url: project[0].url });
+        }
+    }, {
+        key: 'open',
+        value: function open() {
+            this.setState({ showModal: true });
+        }
+    }, {
+        key: 'close',
+        value: function close() {
+            this.setState({ showModal: false });
+        }
+    }, {
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            var projectElements = document.getElementsByClassName("project");
+            for (var i = 0; i < projectElements.length; i++) {
+                projectElements[i].addEventListener('click', this.update, false);
+            }
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                null,
+                _react2.default.createElement(
+                    _reactBootstrap.Modal,
+                    { show: this.state.showModal, onHide: this.close },
+                    _react2.default.createElement(
+                        _reactBootstrap.Modal.Header,
+                        { closeButton: true },
+                        _react2.default.createElement(
+                            _reactBootstrap.Modal.Title,
+                            { className: 'text-center modal-header-title' },
+                            this.state.project
+                        )
+                    ),
+                    _react2.default.createElement(
+                        _reactBootstrap.Modal.Body,
+                        null,
+                        _react2.default.createElement(
+                            'h4',
+                            { className: 'modal-body-title' },
+                            'When?'
+                        ),
+                        _react2.default.createElement(
+                            'p',
+                            { className: 'modal-body-desc' },
+                            this.state.date
+                        ),
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            this.state.url.map(function (url) {
+                                return _react2.default.createElement(
+                                    'a',
+                                    { key: url.key, target: '_blank', href: url.link },
+                                    url.label,
+                                    '. '
+                                );
+                            })
+                        ),
+                        _react2.default.createElement('hr', null),
+                        _react2.default.createElement(
+                            'h4',
+                            { className: 'modal-body-title' },
+                            'What?'
+                        ),
+                        _react2.default.createElement(
+                            'p',
+                            { className: 'modal-body-desc' },
+                            this.state.desc
+                        ),
+                        _react2.default.createElement('hr', null),
+                        _react2.default.createElement(
+                            'h4',
+                            { className: 'modal-body-title' },
+                            'Collaboration'
+                        ),
+                        this.state.task.map(function (task) {
+                            return _react2.default.createElement(
+                                'p',
+                                { className: 'modal-body-desc', key: task },
+                                _react2.default.createElement('span', { className: 'glyphicon glyphicon-menu-right', 'aria-hidden': 'true' }),
+                                task
+                            );
+                        })
+                    )
+                )
+            );
+        }
+    }]);
+
+    return ProjectModal;
+}(_react2.default.Component);
+
+;
+
+var Line12 = exports.Line12 = function Line12(props) {
+    return _react2.default.createElement(
+        'article',
+        { className: 'col-lg-12' },
+        _react2.default.createElement(Project, { project: props.project }),
+        props.desc.map(function (desc) {
+            return _react2.default.createElement(Desc, { key: desc, desc: desc });
+        })
+    );
+};
+
+var Line6 = exports.Line6 = function Line6(props) {
+    return _react2.default.createElement(
+        'article',
+        { className: 'col-lg-6 project' },
+        _react2.default.createElement(Project, { project: props.project }),
+        _react2.default.createElement(Desc, { desc: props.desc })
+    );
+};
+
+var Row12 = exports.Row12 = function Row12(props) {
+    return _react2.default.createElement(
+        'div',
+        { className: 'row marketing' },
+        _react2.default.createElement(Line12, { project: props.project, desc: props.desc })
+    );
+};
+
+var Row6 = exports.Row6 = function Row6(props) {
+    return _react2.default.createElement(
+        'div',
+        { className: 'row marketing' },
+        props.data.map(function (data) {
+            return _react2.default.createElement(Line6, { key: data.id, project: data.project, desc: data.desc });
+        })
+    );
+};
 //# sourceMappingURL=maps/components.js.map

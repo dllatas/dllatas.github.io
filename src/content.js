@@ -45,8 +45,13 @@ export const main = [
         desc: "Single containing a pair of songs full of melancholy."}
     , {
         id: "9",
-        project: "TVSearch",
+        project: "tv search",
         desc: "Looking for that nice TV show you 've heard about? Check for it here !!"}
+    , {
+        id: "10",
+        project: "memory grid",
+        desc: "Are you up for a memory challenge ?? Go ahead and try memory grid !!"
+    }
 ];
 
 export const detail = [
@@ -206,9 +211,9 @@ export const detail = [
         ]
     }
     , {
-        project: "TVSearch"
+        project: "tv search"
         , date: "Aug 2016"
-        , content: "TVSearch is a fully JS web app that presents a detailed list of episodes about a particular show."
+        , content: "tv search is a fully JS web app that presents a detailed list of episodes about a particular show."
         , task: [
             "Design webpage layout to provide a good user experience."
             , "Consuming OMDB api for each request."
@@ -222,7 +227,19 @@ export const detail = [
             }
         ]
     }
+    , {
+        project: "memory grid"
+        , date: "Oct 2016"
+        , content: "memory grid is a React web game that challenges the player's memory by forcing him to recall a set of cells in a grid. Inspired on tutorial by Samer Buna Succinctly book: React.js."
+        , task: [
+            "It was developed using: React, SystemJS, ES2015."
+        ]
+        , url: [
+            {
+                key: "1"
+                , label: "webpage"
+                , link: "https://dllatas.github.io/memory-grid-game"
+            }
+        ]
+    }
 ];
-
-
-

@@ -14,7 +14,6 @@ gulp.task('css', function() {
             './src/css/jumbotron-narrow.css', './src/css/custom-fonts.css', './src/css/main.css'])
         .pipe(concat('main.css'))
         .pipe(sourcemaps.init())
-        //.pipe(cleanCSS({compatibility: 'ie8'}))
         .pipe(cleanCSS())
         .pipe(sourcemaps.write())
         .pipe(gulp.dest('./dist/css'));
@@ -26,23 +25,21 @@ gulp.task('jsx', function() {
         .pipe(babel({
             presets: ['react']
         }))
-        //.pipe(concat('components.js'))
         .pipe(sourcemaps.write('maps'))
         .pipe(gulp.dest('src'));
 });
 
-gulp.task('es6', ['jsx'], function() {
+gulp.task('es6', gulp.series('jsx', function() {
     return gulp.src('src/*.js')
         .pipe(sourcemaps.init())
         .pipe(babel({
             presets: ['es2015']
         }))
-        //.pipe(concat('components.js'))
         .pipe(sourcemaps.write('maps'))
         .pipe(gulp.dest('dist/js'));
-});
+}));
 
-gulp.task('browserify', ['es6'], function () {
+gulp.task('browserify', gulp.series('es6', function() {
     var b = browserify({
         entries: './dist/js/app.js',
         debug: true
@@ -55,21 +52,25 @@ gulp.task('browserify', ['es6'], function () {
             .on('error', gutil.log)
         .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest('dist/js'));
-});
+}));
 
-gulp.task('js-concat', ['browserify'], function() {
+gulp.task('js-concat', gulp.series('browserify', function() {
     return gulp.src(['./dist/js/vendor/jquery.min.js', './dist/js/vendor/bootstrap.min.js', './dist/js/app.js'])
         .pipe(concat('main.js'))
         .pipe(sourcemaps.init())
         .pipe(uglify())
         .pipe(sourcemaps.write())
         .pipe(gulp.dest('./dist/'));
-});
+}));
 
-gulp.task('watch', ['js-concat'], function() {
+gulp.task('watch', gulp.series('js-concat', function() {
     gulp.watch(['src/components/*.jsx', 'src/components/*.js'], ['js-concat']);
     gulp.watch('src/*.js', ['js-concat']);
     gulp.watch('src/css/*.css', ['css']);
-});
+}));
 
-gulp.task('default', ['watch']);
+
+gulp.task('default', gulp.series('watch', function(done) {
+    done();
+}));
+//gulp.task('default', ['watch']);
