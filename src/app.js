@@ -1,5 +1,7 @@
 'use strict';
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -10,8 +12,6 @@ var _reactDom2 = _interopRequireDefault(_reactDom);
 
 var _components = require('./components.js');
 
-var Components = _interopRequireWildcard(_components);
-
 var _content = require('./content.js');
 
 var Content = _interopRequireWildcard(_content);
@@ -20,13 +20,5 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_reactDom2.default.render(_react2.default.createElement(
-    'section',
-    null,
-    _react2.default.createElement(Components.Jumbotron, { heading: Content.jumbotron[0].heading,
-        name: Content.jumbotron[0].name,
-        misc: Content.jumbotron[0].misc }),
-    _react2.default.createElement(Components.Row6, { data: Content.main }),
-    _react2.default.createElement(Components.ProjectModal, null)
-), document.getElementById('container'));
+_reactDom2.default.render(_react2.default.createElement(_components.App, _extends({}, Content.jumbotron, { data: Content.main, detail: Content.detail })), document.getElementById('container'));
 //# sourceMappingURL=maps/app.js.map

@@ -33,6 +33,7 @@ article {
 .project-title {
     font-family: 'Scope One', serif;
     font-size: 26px;
+    font-weight: bold;
 }
 
 .project-desc {

@@ -5,7 +5,17 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.Row6 = exports.Row12 = exports.Line6 = exports.Line12 = exports.ProjectModal = exports.Project = exports.Desc = exports.Jumbotron = exports.Heading = exports.Subheader2 = exports.Subheader = undefined;
+exports.App = exports.ProjectList = exports.Project = exports.ProjectModal = exports.Jumbotron = exports.Header = exports.Subheader = undefined;
+
+var _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+        var source = arguments[i];for (var key in source) {
+            if (Object.prototype.hasOwnProperty.call(source, key)) {
+                target[key] = source[key];
+            }
+        }
+    }return target;
+};
 
 var _createClass = function () {
     function defineProperties(target, props) {
@@ -61,33 +71,23 @@ function _inherits(subClass, superClass) {
     }subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
 }
 
-//export const Subheader = (props) => <p className='lead text-left sub-header'>{props.text}</p>
+/* JUMBOTRON */
 
 var Subheader = exports.Subheader = function Subheader(props) {
-    return _react2.default.createElement('p', { className: 'sub-header text-left ' }, props.text);
+    return _react2.default.createElement('p', { className: props.styleName }, props.text);
 };
 
-var Subheader2 = exports.Subheader2 = function Subheader2(props) {
-    return _react2.default.createElement('p', { className: 'sub-header-2 text-left' }, props.text);
-};
-
-var Heading = exports.Heading = function Heading(props) {
-    return _react2.default.createElement('h1', { className: 'text-left' }, props.heading);
+var Header = exports.Header = function Header(props) {
+    return _react2.default.createElement('h1', { className: 'text-left' }, props.header);
 };
 
 var Jumbotron = exports.Jumbotron = function Jumbotron(props) {
-    return _react2.default.createElement('div', { className: 'jumbotron' }, _react2.default.createElement(Heading, { heading: props.heading }), _react2.default.createElement(Subheader, { text: props.name }), props.misc.map(function (misc) {
-        return _react2.default.createElement(Subheader2, { key: misc, text: misc });
+    return _react2.default.createElement('div', { className: 'jumbotron' }, _react2.default.createElement(Header, { header: props.header }), _react2.default.createElement(Subheader, { styleName: 'sub-header text-left', text: props.name }), props.misc.map(function (misc) {
+        return _react2.default.createElement(Subheader, { key: misc, styleName: 'sub-header-2 text-left', text: misc });
     }));
 };
 
-var Desc = exports.Desc = function Desc(props) {
-    return _react2.default.createElement('p', { className: 'text-justify project-desc' }, props.desc);
-};
-
-var Project = exports.Project = function Project(props) {
-    return _react2.default.createElement('h4', { className: 'project-title' }, _react2.default.createElement('strong', null, props.project));
-};
+/* PROJECT LIST*/
 
 var ProjectModal = exports.ProjectModal = function (_React$Component) {
     _inherits(ProjectModal, _React$Component);
@@ -107,7 +107,7 @@ var ProjectModal = exports.ProjectModal = function (_React$Component) {
 
     _createClass(ProjectModal, [{
         key: 'update',
-        value: function update() {
+        value: function update(event) {
             var el = event.target;
             var children = el.children;
             if (children.length === 0) {
@@ -115,7 +115,7 @@ var ProjectModal = exports.ProjectModal = function (_React$Component) {
                 children = el.children;
             }
             var project = Content.detail.filter(function (detail) {
-                return detail.project === children[0].innerText;
+                return detail.project === children[0].innerHTML;
             });
             this.setState({ showModal: true, project: project[0].project,
                 desc: project[0].content, date: project[0].date, task: project[0].task, url: project[0].url });
@@ -154,24 +154,18 @@ var ProjectModal = exports.ProjectModal = function (_React$Component) {
 
 ;
 
-var Line12 = exports.Line12 = function Line12(props) {
-    return _react2.default.createElement('article', { className: 'col-lg-12' }, _react2.default.createElement(Project, { project: props.project }), props.desc.map(function (desc) {
-        return _react2.default.createElement(Desc, { key: desc, desc: desc });
-    }));
+var Project = exports.Project = function Project(props) {
+    return _react2.default.createElement('article', { className: 'col-lg-6 project' }, _react2.default.createElement('h4', { className: 'project-title' }, props.project), _react2.default.createElement('p', { className: 'text-justify project-desc' }, props.desc));
 };
 
-var Line6 = exports.Line6 = function Line6(props) {
-    return _react2.default.createElement('article', { className: 'col-lg-6 project' }, _react2.default.createElement(Project, { project: props.project }), _react2.default.createElement(Desc, { desc: props.desc }));
-};
-
-var Row12 = exports.Row12 = function Row12(props) {
-    return _react2.default.createElement('div', { className: 'row marketing' }, _react2.default.createElement(Line12, { project: props.project, desc: props.desc }));
-};
-
-var Row6 = exports.Row6 = function Row6(props) {
+var ProjectList = exports.ProjectList = function ProjectList(props) {
     return _react2.default.createElement('div', { className: 'row marketing' }, props.data.map(function (data) {
-        return _react2.default.createElement(Line6, { key: data.id, project: data.project, desc: data.desc });
-    }));
+        return _react2.default.createElement(Project, _extends({ key: data.id }, data));
+    }), _react2.default.createElement(ProjectModal, null));
+};
+
+var App = exports.App = function App(props) {
+    return _react2.default.createElement('section', null, _react2.default.createElement(Jumbotron, { header: props.header, name: props.name, misc: props.misc }), _react2.default.createElement(ProjectList, { data: props.data, detail: props.detail }));
 };
 //# sourceMappingURL=maps/components.js.map
 //# sourceMappingURL=maps/components.js.map

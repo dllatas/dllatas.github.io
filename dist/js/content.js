@@ -3,12 +3,12 @@
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-var jumbotron = exports.jumbotron = [{
-    heading: "welcome!",
+var jumbotron = exports.jumbotron = {
+    header: "welcome!",
     motto: "the broad spectrum of life seduces me",
     name: "daniel llatas spiers",
     misc: ["computer scientist, music enthusiast", "lima, peru (1989 - 2014) uppsala, sweden (2014 - today)"]
-}];
+};
 
 var main = exports.main = [{
     id: "1",

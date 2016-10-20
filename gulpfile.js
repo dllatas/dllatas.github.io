@@ -29,7 +29,7 @@ gulp.task('jsx', function() {
         .pipe(gulp.dest('src'));
 });
 
-gulp.task('es6', gulp.series('jsx', function() {
+gulp.task('es6', gulp.series(['css','jsx'], function() {
     return gulp.src('src/*.js')
         .pipe(sourcemaps.init())
         .pipe(babel({

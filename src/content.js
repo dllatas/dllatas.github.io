@@ -1,14 +1,12 @@
-export const jumbotron = [
-    {
-        heading: "welcome!"
+export const jumbotron = {
+        header: "welcome!"
         , motto: "the broad spectrum of life seduces me"
         , name: "daniel llatas spiers"
         , misc: [
             "computer scientist, music enthusiast",
             "lima, peru (1989 - 2014) uppsala, sweden (2014 - today)"
         ]
-    }
-];
+};
 
 export const main = [
     {
