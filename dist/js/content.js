@@ -50,7 +50,7 @@ var detail = exports.detail = [{
     task: ["Image processing of extended Cohn-Kanade dataset and video processing of Affectiva-MIT facial expression dataset using OpenCV 2.4 Python’s library.", "Implementing a convolutional neural network using Google’s TensorFlow 0.7 library. This classifier was trained on static facial images.", "Fine tune the different parameters related to the model: network topology, learning rate, optimizers, kernel size, etc. Explore their impact on the training time and the classification accuracy."],
     url: [{
         key: "1",
-        label: "git repository",
+        label: "git",
         link: "https://github.com/dllatas/deepLearning"
     }, {
         key: "2",
@@ -72,7 +72,7 @@ var detail = exports.detail = [{
         link: "http://www.it.uu.se/edu/course/homepage/projektDV/ht15"
     }, {
         key: "2",
-        label: "git repository",
+        label: "git",
         link: "https://github.com/EricssonResearch/monad"
     }]
 }, {
@@ -92,7 +92,7 @@ var detail = exports.detail = [{
     task: ["Get access to MIB dataset.", "Fine tune neural network parameters along with Zingo."],
     url: [{
         key: "1",
-        label: "git repository",
+        label: "git",
         link: "https://github.com/dllatas/bot-account"
     }]
 }, {
@@ -102,7 +102,7 @@ var detail = exports.detail = [{
     task: ["Internationalization of the app by implementing a JS native method to translate the content to English, Swedish and Spanish.", "Implement an UNDO/REDO JS native method on the payment interface, so users have a better experience at the moment of selecting beverages on their shopping carts."],
     url: [{
         key: "1",
-        label: "git repository",
+        label: "git",
         link: "https://github.com/joolify/dutchman2"
     }]
 }, {
@@ -112,7 +112,7 @@ var detail = exports.detail = [{
     task: ["Implement a native JS MVC framework.", "Internationalization of the app by implementing a JS native method to translate the content of the game to several languages.", "Generate a user settings screen. The user was able to set the background image, music theme and music volume for its game."],
     url: [{
         key: "1",
-        label: "git repository",
+        label: "git",
         link: "https://github.com/dllatas/brick-breaker"
     }, {
         key: "2",
@@ -123,11 +123,15 @@ var detail = exports.detail = [{
     project: "metAleph",
     date: "Jan 2016",
     content: "metAleph is an initiative where I collaborate with PhD candidate (and lifetime friend) Cristhian Seminario. Our main interest is to develop products to facilitate data handling. The webpage aims to inform about our vision and current projects.",
-    task: ["Design webpage layout taking into account brand identity.", "Implement that layout using HTML5, CSS3 and JS.", "Automate front-end JS development using Gulp."],
+    task: ["Design webpage layout taking into account brand identity.", "Implement the layout using HTML5, CSS3 and JS; React, NodeJS, ES2015 and Bootstrap.", "Building using Webpack and component testing with Enzyme."],
     url: [{
         key: "1",
         label: "webpage",
         link: "http://metaleph.com"
+    }, {
+        key: "2",
+        label: "git",
+        link: "https://github.com/metAleph/metaleph.com.git"
     }]
 }, {
     project: "resolana",
@@ -148,6 +152,10 @@ var detail = exports.detail = [{
         key: "1",
         label: "webpage",
         link: "https://dllatas.github.io/tvSearch"
+    }, {
+        key: "2",
+        label: "git",
+        link: "https://github.com/dllatas/tvSearch"
     }]
 }, {
     project: "memory grid",

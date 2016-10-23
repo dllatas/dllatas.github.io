@@ -65,7 +65,7 @@ export const detail = [
         , url: [
             {
                 key: "1"
-                , label: "git repository"
+                , label: "git"
                 , link: "https://github.com/dllatas/deepLearning"
             }
             , {
@@ -99,7 +99,7 @@ export const detail = [
             }
             , {
                 key: "2"
-                , label: "git repository"
+                , label: "git"
                 , link: "https://github.com/EricssonResearch/monad"
             }
         ]
@@ -132,7 +132,7 @@ export const detail = [
         , url: [
             {
                 key: "1"
-                , label: "git repository"
+                , label: "git"
                 , link: "https://github.com/dllatas/bot-account"
             }
         ]
@@ -148,7 +148,7 @@ export const detail = [
         , url: [
             {
                 key: "1"
-                , label: "git repository"
+                , label: "git"
                 , link: "https://github.com/joolify/dutchman2"
             }
         ]
@@ -165,7 +165,7 @@ export const detail = [
         , url: [
             {
                 key: "1"
-                , label: "git repository"
+                , label: "git"
                 , link: "https://github.com/dllatas/brick-breaker"
             }
             , {
@@ -181,14 +181,20 @@ export const detail = [
         , content: "metAleph is an initiative where I collaborate with PhD candidate (and lifetime friend) Cristhian Seminario. Our main interest is to develop products to facilitate data handling. The webpage aims to inform about our vision and current projects."
         , task: [
             "Design webpage layout taking into account brand identity."
-            , "Implement that layout using HTML5, CSS3 and JS."
-            , "Automate front-end JS development using Gulp."
+            , "Implement the layout using HTML5, CSS3 and JS; React, NodeJS, ES2015 and Bootstrap."
+            , "Building using Webpack and component testing with Enzyme."
         ]
         , url: [
             {
                 key: "1"
                 , label: "webpage"
                 , link: "http://metaleph.com"
+            }
+            ,
+            {
+                key: "2"
+                , label: "git"
+                , link: "https://github.com/metAleph/metaleph.com.git"
             }
         ]
     }
@@ -222,6 +228,12 @@ export const detail = [
                 key: "1"
                 , label: "webpage"
                 , link: "https://dllatas.github.io/tvSearch"
+            }
+            ,
+            {
+                key: "2"
+                , label: "git"
+                , link: "https://github.com/dllatas/tvSearch"
             }
         ]
     }
