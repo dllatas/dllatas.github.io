@@ -6,6 +6,25 @@ export const jumbotron = {
             "computer scientist, music enthusiast",
             "lima, peru (1989 - 2014) uppsala, sweden (2014 - today)"
         ]
+        , social: [
+        {
+            ref: 'https://linkedin.com/in/daniel-llatas-spiers-3701a85a'
+            , img: './bin/img/linkedin.png'
+            , alt: 'LinkedIn profile'
+            , text: 'LinkedIn'
+        }
+        , {
+            ref: 'https://github.com/dllatas'
+            , img: './bin/img/github.png'
+            , alt: 'Github repo'
+            , text: 'Github'
+        }
+        , {
+            ref: './bin/pdf/cv.pdf'
+            , img: './bin/img/cv.png'
+            , alt: 'CV file'
+            , text: 'CV'
+        }]
 };
 
 export const main = [
