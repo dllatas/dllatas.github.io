@@ -53,7 +53,7 @@ const Github = (props) => (
 )
 
 const CV = (props) => (
-    <a target="_blank" href="./dist/cv.pdf" style={LinkedInAStyle}>
+    <a target="_blank" href="./bin/pdf/cv.pdf" style={LinkedInAStyle}>
         <span style={LinkedInSpanStyle}>
             <img src="./bin/img/cv.png" width="20" height="15" alt="CV file" style={LinkedInImgStyle} />
             {"CV"}
