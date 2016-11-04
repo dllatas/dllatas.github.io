@@ -20,5 +20,5 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_reactDom2.default.render(_react2.default.createElement(_components.App, _extends({}, Content.jumbotron, { data: Content.main, detail: Content.detail })), document.getElementById('container'));
+_reactDom2.default.render(_react2.default.createElement(_components.App, _extends({}, Content.jumbotron, { data: Content.main, detail: Content.detail })), document.getElementById('app'));
 //# sourceMappingURL=maps/app.js.map

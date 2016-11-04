@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.App = exports.ProjectList = exports.Project = exports.ProjectModal = exports.Jumbotron = exports.Header = exports.Subheader = undefined;
+exports.App = exports.ProjectModal = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -29,9 +29,34 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+var LinkedInAStyle = {
+    textDecoration: "none",
+    paddingRight: '10px'
+};
+
+var LinkedInSpanStyle = {
+    fontFamily: "Arial, sans-serif",
+    fontSize: "80%",
+    color: "#0783B6",
+    textDecoration: 'none'
+};
+
+var LinkedInImgStyle = {
+    verticalAlign: "middle"
+};
+
+var HeaderStyle = {
+    marginTop: '1%'
+};
+
+var JumbotronStyle = {
+    marginBottom: '0px',
+    paddingBottom: '15px'
+};
+
 /* JUMBOTRON */
 
-var Subheader = exports.Subheader = function Subheader(props) {
+var Subheader = function Subheader(props) {
     return _react2.default.createElement(
         'p',
         { className: props.styleName },
@@ -39,23 +64,82 @@ var Subheader = exports.Subheader = function Subheader(props) {
     );
 };
 
-var Header = exports.Header = function Header(props) {
+var Header = function Header(props) {
     return _react2.default.createElement(
         'h1',
-        { className: 'text-left' },
+        { className: 'text-center', style: HeaderStyle },
         props.header
     );
 };
 
-var Jumbotron = exports.Jumbotron = function Jumbotron(props) {
+var LinkedIn = function LinkedIn(props) {
+    return _react2.default.createElement(
+        'a',
+        { target: '_blank', href: 'https://se.linkedin.com/pub/daniel-llatas-spiers/5a/1a8/370', style: LinkedInAStyle },
+        _react2.default.createElement(
+            'span',
+            { style: LinkedInSpanStyle },
+            _react2.default.createElement('img', { src: 'https://static.licdn.com/scds/common/u/img/webpromo/btn_in_20x15.png',
+                width: '20', height: '15', alt: 'LinkedIn profile', style: LinkedInImgStyle }),
+            "LinkedIn"
+        )
+    );
+};
+
+var Github = function Github(props) {
+    return _react2.default.createElement(
+        'a',
+        { target: '_blank', href: 'https://github.com/dllatas', style: LinkedInAStyle },
+        _react2.default.createElement(
+            'span',
+            { style: LinkedInSpanStyle },
+            _react2.default.createElement('img', { src: './dist/github.png', width: '20', height: '15', alt: 'Github repo', style: LinkedInImgStyle }),
+            "Github"
+        )
+    );
+};
+
+var CV = function CV(props) {
+    return _react2.default.createElement(
+        'a',
+        { target: '_blank', href: './dist/cv.pdf', style: LinkedInAStyle },
+        _react2.default.createElement(
+            'span',
+            { style: LinkedInSpanStyle },
+            _react2.default.createElement('img', { src: './dist/cv.png', width: '20', height: '15', alt: 'CV file', style: LinkedInImgStyle }),
+            "CV"
+        )
+    );
+};
+
+var Main = function Main(props) {
+    return _react2.default.createElement(
+        'section',
+        null,
+        _react2.default.createElement(Header, { header: props.header }),
+        _react2.default.createElement(Subheader, { styleName: 'sub-header text-center', text: props.name }),
+        props.misc.map(function (misc) {
+            return _react2.default.createElement(Subheader, { key: misc, styleName: 'sub-header-2 text-center', text: misc });
+        })
+    );
+};
+
+var Jumbotron = function Jumbotron(props) {
     return _react2.default.createElement(
         'div',
-        { className: 'jumbotron' },
-        _react2.default.createElement(Header, { header: props.header }),
-        _react2.default.createElement(Subheader, { styleName: 'sub-header text-left', text: props.name }),
-        props.misc.map(function (misc) {
-            return _react2.default.createElement(Subheader, { key: misc, styleName: 'sub-header-2 text-left', text: misc });
-        })
+        { className: 'jumbotron', style: JumbotronStyle },
+        _react2.default.createElement(Main, { header: props.header, name: props.name, misc: props.misc }),
+        _react2.default.createElement(
+            'div',
+            { className: 'row' },
+            _react2.default.createElement(
+                'div',
+                { className: 'col-lg-12' },
+                _react2.default.createElement(LinkedIn, null),
+                _react2.default.createElement(Github, null),
+                _react2.default.createElement(CV, null)
+            )
+        )
     );
 };
 
@@ -189,7 +273,7 @@ var ProjectModal = exports.ProjectModal = function (_React$Component) {
 
 ;
 
-var Project = exports.Project = function Project(props) {
+var Project = function Project(props) {
     return _react2.default.createElement(
         'article',
         { className: 'col-lg-6 project' },
@@ -206,10 +290,10 @@ var Project = exports.Project = function Project(props) {
     );
 };
 
-var ProjectList = exports.ProjectList = function ProjectList(props) {
+var ProjectList = function ProjectList(props) {
     return _react2.default.createElement(
         'div',
-        { className: 'row marketing' },
+        { className: 'col-lg-12' },
         props.data.map(function (data) {
             return _react2.default.createElement(Project, _extends({ key: data.id }, data));
         }),
@@ -221,8 +305,25 @@ var App = exports.App = function App(props) {
     return _react2.default.createElement(
         'section',
         null,
-        _react2.default.createElement(Jumbotron, { header: props.header, name: props.name, misc: props.misc }),
-        _react2.default.createElement(ProjectList, { data: props.data, detail: props.detail })
+        _react2.default.createElement(
+            'section',
+            { className: 'container-fluid' },
+            _react2.default.createElement(Jumbotron, { header: props.header, name: props.name, misc: props.misc })
+        ),
+        _react2.default.createElement(
+            'section',
+            { className: 'container' },
+            _react2.default.createElement(
+                'div',
+                { className: 'row marketing' },
+                _react2.default.createElement(ProjectList, { data: props.data, detail: props.detail })
+            )
+        )
     );
 };
+
+// <div className="col-lg-10 col-lg-offset-2 main">
+// <div className="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+// <AsideBar />
+// <div className="col-lg-10 col-lg-offset-2">
 //# sourceMappingURL=maps/components.js.map
