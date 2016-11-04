@@ -1,6 +1,6 @@
 import React from 'react';
 import { Modal } from 'react-bootstrap';
-import * as Content from './content.js';
+import * as Content from '../content.js';
 
 const LinkedInAStyle = {
     textDecoration: "none",
@@ -46,7 +46,7 @@ const LinkedIn = (props) => (
 const Github = (props) => (
     <a target="_blank" href="https://github.com/dllatas" style={LinkedInAStyle}>
         <span style={LinkedInSpanStyle}>
-            <img src="./dist/github.png" width="20" height="15" alt="Github repo" style={LinkedInImgStyle} />
+            <img src="./bin/img/github.png" width="20" height="15" alt="Github repo" style={LinkedInImgStyle} />
             {"Github"}
         </span>
     </a>
@@ -55,7 +55,7 @@ const Github = (props) => (
 const CV = (props) => (
     <a target="_blank" href="./dist/cv.pdf" style={LinkedInAStyle}>
         <span style={LinkedInSpanStyle}>
-            <img src="./dist/cv.png" width="20" height="15" alt="CV file" style={LinkedInImgStyle} />
+            <img src="./bin/img/cv.png" width="20" height="15" alt="CV file" style={LinkedInImgStyle} />
             {"CV"}
         </span>
     </a>
@@ -185,9 +185,3 @@ export const App = (props) => (
         </section>
     </section>
 )
-
-
-// <div className="col-lg-10 col-lg-offset-2 main">
-// <div className="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-// <AsideBar />
-// <div className="col-lg-10 col-lg-offset-2">
