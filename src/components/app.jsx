@@ -7,13 +7,13 @@ import * as Content from '../content.js';
 /* Import style */
 import { socialLinkAStyle, socialLinkSpanStyle, socialLinkImgStyle, titleStyle, jumbotronStyle} from './style.js';
 /* Import CSS */
-require("../css/bootstrap.min.css");
-require("../css/bootstrap-theme.min.css");
-require("../css/custom-fonts.css");
-require("../css/jumbotron-narrow.css");
-require("../css/main.css");
-require("../css/modal.css");
-require("../css/project.css");
+import '../css/bootstrap.min.css';
+import '../css/bootstrap-theme.min.css';
+import '../css/custom-fonts.css';
+import '../css/jumbotron-narrow.css';
+import '../css/main.css';
+import '../css/modal.css';
+import '../css/project.css';
 
 export const App = (props) => (
     <section>
