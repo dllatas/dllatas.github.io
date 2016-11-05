@@ -1,5 +1,7 @@
 import React from 'react';
+//import Portal from 'react-portal';
 import { ProjectModal } from './projectModal.jsx';
+//import { ProjectModal } from './modalTest.jsx';
 
 const Project = (props) => (
     <article className={props.articleClass}>
@@ -10,14 +12,15 @@ const Project = (props) => (
 
 export const ProjectList = (props) => (
     <section className={props.CClass}>
-        <div className={props.RClass}>
-            <div className={props.ColClass}>
+        <section className={props.RClass}>
+            <section className={props.ColClass}>
                 { props.data.map(function(data) {
                     return <Project key={data.id} {...data} articleClass={props.articleClass}
-                        headerClass={props.headerClass} pClass={props.pClass} />
+                        headerClass={props.headerClass} pClass={props.pClass} />;
                 })}
-                <ProjectModal />
-            </div>
-        </div>
+            </section>
+        </section>
+        <ProjectModal />
     </section>
 )
+

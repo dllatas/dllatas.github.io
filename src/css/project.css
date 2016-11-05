@@ -1,0 +1,14 @@
+.project {
+    cursor: pointer;
+}
+
+.project-title {
+    font-family: 'Scope One', serif;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.project-desc {
+    font-family: 'Coming Soon', cursive;
+    font-size: 16px;
+}

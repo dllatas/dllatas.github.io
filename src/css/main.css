@@ -26,21 +26,6 @@ article {
     margin: 10px 0;
 }
 
-.project {
-    cursor: pointer;
-}
-
-.project-title {
-    font-family: 'Scope One', serif;
-    font-size: 26px;
-    font-weight: bold;
-}
-
-.project-desc {
-    font-family: 'Coming Soon', cursive;
-    font-size: 16px;
-}
-
 .sub-header {
     font-family: 'Scope One', serif;
     font-size: 35px;
@@ -51,22 +36,4 @@ article {
     font-family: 'Coming Soon', cursive;
     font-size: 16px;
     margin-bottom: 10px;
-}
-
-.modal-header-title {
-    font-family: 'Scope One', serif;
-    font-size: 22px;
-    font-weight: bold;
-
-}
-
-.modal-body-title {
-    font-family: 'Scope One', serif;
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.modal-body-desc {
-    font-family: 'Coming Soon', cursive;
-    font-size: 16px;
 }

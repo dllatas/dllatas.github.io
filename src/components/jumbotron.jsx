@@ -8,7 +8,6 @@ const SocialLink = (props) => (
     <a target="_blank" href={props.url} style={props.SLStyle}>
         <span style={props.SLSpanStyle}>
             <img src={props.img} alt={props.alt} style={props.SLImgStyle} />
-            {props.text}
         </span>
     </a>
 )
